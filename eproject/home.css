@@ -1,0 +1,119 @@
+      /* ================= GLOBAL ================= */
+body {
+  padding-top: 70px;
+  background: linear-gradient(to bottom right, #f0f4f8, #d9e2ec);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  background: #1f2937 !important;
+}
+
+.navbar-brand {
+  
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: #f9fafb !important;
+}
+
+.navbar .nav-link {
+  color: aliceblue !important;
+  margin-left: 0.75rem;
+}
+
+@media (max-width: 991px) {
+  .navbar-nav {
+    text-align: center;
+  }
+}
+
+/* ================= CAROUSEL ================= */
+.carousel-item img {
+  height: 70vh;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 40vh;
+  }
+}
+
+/* ================= CATEGORY SECTION ================= */
+.Catagory {
+  background: #fef3c7;
+  padding: 50px 15px;
+  border-radius: 15px;
+  margin: 40px auto;
+}
+
+.Catagory .card {
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 18rem;
+}
+
+.Catagory .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .Catagory .card {
+    width: 16rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .Catagory .card {
+    width: 100%;
+  }
+}
+
+/* ================= BUTTONS ================= */
+.enroll-btn {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.enroll-btn:hover {
+  background-color: aqua;
+  color: black;
+}
+
+button.btn-link {
+  color: #1d4ed8;
+}
+
+button.btn-link:hover {
+  text-decoration: underline;
+}
+
+/* ================= CONTACT SECTION ================= */
+.contactform {
+  background: #d1fae5;
+  padding: 50px 20px;
+  border-radius: 15px;
+  margin: 40px auto;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    
+  background: #111827;
+  color: #f9fafb;
+  padding: 20px 0;
+  text-align: center;
+}.logo img {
+  height: 50px;   /* control logo size */
+  width: auto;
+  background: transparent;
+}
+
