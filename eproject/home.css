@@ -1,8 +1,10 @@
-      /* ================= GLOBAL ================= */
+/* ================= GLOBAL ================= */
 body {
   padding-top: 70px;
+  font-family: 'Poppins', sans-serif;
   background: linear-gradient(to bottom right, #f0f4f8, #d9e2ec);
-  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  scroll-behavior: smooth;
 }
 
 img {
@@ -12,31 +14,73 @@ img {
 
 /* ================= NAVBAR ================= */
 .navbar {
-  background: #1f2937 !important;
+  background-color: black !important;
+  padding: 12px 25px;
+  transition: background-color 0.4s ease, padding 0.3s ease;
 }
 
-.navbar-brand {
-  
-  font-weight: bold;
-  font-size: 1.4rem;
+.navbar.scrolled {
+  background-color: rgba(17, 24, 39, 0.95) !important;
+  padding: 8px 25px;
+}
+
+.navbar-brand img {
+  height: 60px;
+  width: auto;
+  transition: transform 0.3s ease;
+   max-width: 480px;
+  border-radius: 8px;
+  border: 3px solid #ff9800;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.navbar-brand img:hover {
+ 
+    transform: scale(1.06);
+  box-shadow: 0 30px 60px rgba(255, 152, 0, 0.4);
+}
+
+.navbar-nav .nav-link {
   color: #f9fafb !important;
+  margin-left: 15px;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.navbar .nav-link {
-  color: aliceblue !important;
-  margin-left: 0.75rem;
+/* underline animation */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: #ff9800;
+  transition: width 0.3s ease;
 }
 
-@media (max-width: 991px) {
-  .navbar-nav {
-    text-align: center;
-  }
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  width: 100%;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #ff9800 !important;
+  transform: translateY(-2px);
 }
 
 /* ================= CAROUSEL ================= */
 .carousel-item img {
   height: 70vh;
   object-fit: cover;
+  transition: transform 1s ease;
+}
+
+.carousel-item.active img {
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
@@ -54,9 +98,9 @@ img {
 }
 
 .Catagory .card {
+  width: 18rem;
   border-radius: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 18rem;
 }
 
 .Catagory .card:hover {
@@ -64,14 +108,12 @@ img {
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Tablet */
 @media (max-width: 992px) {
   .Catagory .card {
     width: 16rem;
   }
 }
 
-/* Mobile */
 @media (max-width: 576px) {
   .Catagory .card {
     width: 100%;
@@ -79,8 +121,15 @@ img {
 }
 
 /* ================= BUTTONS ================= */
-.enroll-btn {
-  transition: background-color 0.3s, color 0.3s;
+.btn-primary {
+  background: linear-gradient(90deg, #0d6efd, #6610f2);
+  border: none;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  background: linear-gradient(90deg, #6610f2, #0d6efd);
 }
 
 .enroll-btn:hover {
@@ -88,15 +137,71 @@ img {
   color: black;
 }
 
-button.btn-link {
-  color: #1d4ed8;
+/* ================= ABOUT SECTION ================= */
+.about-section {
+  max-width: 1100px;
+  margin: 90px auto 50px;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
 }
 
-button.btn-link:hover {
-  text-decoration: underline;
+.image-container {
+  flex: 1 1 420px;
+  text-align: center;
 }
 
-/* ================= CONTACT SECTION ================= */
+.image-container img {
+  max-width: 480px;
+  border-radius: 18px;
+  border: 3px solid #ff9800;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.image-container img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 30px 60px rgba(255, 152, 0, 0.4);
+}
+
+.text-container {
+  height: 10px;
+  flex: 10 1 20px;
+  background: linear-gradient(135deg, #1c1c1c, #2e2e2e);
+  padding: 30px;
+  border-radius: 18px;
+  border-left: 5px solid #ff9800;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+ 
+}
+
+.text-container marquee {
+  color: #f8f9fa;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.9;
+ 
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-container {
+    border-left: none;
+    border-top: 5px solid #ff9800;
+  }
+}
+
+/* ================= CONTACT ================= */
 .contactform {
   background: #d1fae5;
   padding: 50px 20px;
@@ -104,440 +209,27 @@ button.btn-link:hover {
   margin: 40px auto;
 }
 
-/* ================= FOOTER ================= */
-footer {
-    
-  background: #111827;
-  color: #f9fafb;
-  padding: 20px 0;
-  text-align: center;
-}.logo img {
-  height: 50px;   /* control logo size */
-  width: auto;
-  background: transparent;
-}
-/* General body styling */
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
-}
-
-/* Navbar */
-.navbar-dark .navbar-nav .nav-link {
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-.navbar-dark .navbar-nav .nav-link:hover {
-    color: #0d6efd;
-    transform: scale(1.05);
-}
-
-/* Logo */
-.logo img {
-    height: 50px;
-    transition: transform 0.3s ease;
-}
-.logo img:hover {
-    transform: rotate(10deg);
-}
-
-/* Carousel */
-.carousel-item img {
-    height: 500px;
-    object-fit: cover;
-    transition: transform 1s ease;
-}
-.carousel-item.active img {
-    transform: scale(1.05);
-}
-
-/* Cards */
-.card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-/* Buttons */
-.btn-primary {
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-.btn-primary:hover {
-    background-color: #0a58ca;
-    transform: scale(1.05);
-}
-
-/* About Section */
-.about-us img {
-    max-width: 100%;
-    border-radius: 10px;
-    margin: 20px 0;
-    transition: transform 0.5s ease;
-}
-.about-us img:hover {
-    transform: scale(1.05);
-}
-.about-us h1 {
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-/* Footer */
-.footer {
-    background-color: #212529;
-    color: #fff;
-}
-.footer h3 {
-    margin-bottom: 15px;
-}
-.footer a {
-    color: #adb5bd;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-.footer a:hover {
-    color: #0d6efd;
-}
-.footer .social-icons a {
-    font-size: 1.2rem;
-    margin-right: 10px;
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
-.footer .social-icons a:hover {
-    transform: scale(1.2);
-}
-
-/* Contact Form */
-.contactform .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.contactform .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-.contactform button {
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-.contactform button:hover {
-    background-color: #0a58ca;
-    transform: scale(1.05);
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .carousel-item img {
-        height: 300px;
-    }
-    .card {
-        width: 100% !important;
-    }
-    .about-us img {
-        margin: 15px 0;
-    }
-}
-/* ======================== GENERAL ======================== */
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
-  scroll-behavior: smooth;
-}
-
-h1, h2, h3, h4 {
-  font-weight: 600;
-}
-
-/* ======================== NAVBAR ======================== */
-.navbar {
-  transition: background-color 0.5s ease, padding 0.3s ease;
-}
-
-.navbar.scrolled {
-  background-color: rgba(0, 0, 0, 0.9) !important;
-  padding: 0.5rem 1rem !important;
-}
-
-.navbar-dark .nav-link {
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-.navbar-dark .nav-link:hover {
-  color: #0d6efd;
-  transform: scale(1.1);
-}
-
-.logo img {
-  height: 50px;
-  transition: transform 0.3s ease;
-}
-.logo img:hover {
-  transform: rotate(10deg) scale(1.1);
-}
-
-/* ======================== CAROUSEL ======================== */
-.carousel-item img {
-  height: 500px;
-  object-fit: cover;
-  transition: transform 1s ease;
-}
-.carousel-item.active img {
-  transform: scale(1.05);
-}
-.carousel-caption {
-  background: rgba(0,0,0,0.4);
-  padding: 20px;
-  border-radius: 10px;
-  animation: fadeInUp 1s ease;
-}
-
-/* ======================== CARDS ======================== */
-.card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-}
-
-/* ======================== BUTTONS ======================== */
-.btn-primary {
-  background: linear-gradient(90deg, #0d6efd, #6610f2);
-  border: none;
-  transition: background 0.3s ease, transform 0.3s ease;
-}
-.btn-primary:hover {
-  background: linear-gradient(90deg, #6610f2, #0d6efd);
-  transform: scale(1.05);
-}
-
-/* ======================== ABOUT ======================== */
-.about-us img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin: 20px 0;
-  transition: transform 0.5s ease;
-}
-.about-us img:hover {
-  transform: scale(1.05);
-}
-
-/* ======================== FOOTER ======================== */
-.footer {
-  background-color: #212529;
-  color: #fff;
-  padding: 50px 0;
-}
-.footer h3 {
-  margin-bottom: 15px;
-}
-.footer a {
-  color: #adb5bd;
-  text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-.footer a:hover {
-  color: #0d6efd;
-  transform: translateX(5px);
-}
-.footer .social-icons a {
-  font-size: 1.5rem;
-  margin-right: 15px;
-  display: inline-block;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-.footer .social-icons a:hover {
-  transform: scale(1.2);
-  color: #0d6efd;
-}
-
-/* ======================== CONTACT FORM ======================== */
-.contactform .card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 .contactform .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
-.contactform button {
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-.contactform button:hover {
-  transform: scale(1.05);
+
+/* ================= FOOTER ================= */
+footer,
+.footer {
+  background: #111827;
+  color: #f9fafb;
+  padding: 30px 0;
+  text-align: center;
 }
 
-/* ======================== ANIMATIONS ======================== */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.footer a {
+  color: #adb5bd;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-/* ======================== MEDIA QUERIES ======================== */
-@media (max-width: 768px) {
-  .carousel-item img {
-    height: 300px;
-  }
-  .card {
-    width: 100% !important;
-  }
-  .about-us img {
-    margin: 15px 0;
-  }
+.footer a:hover {
+  color: #0d6efd;
 }
-/*** Spinner Start ***/
-#spinner {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease-out, visibility 0s linear 0.5s;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 99999;
-    background: rgba(255, 255, 255, 0.8) url('../img/spinner.gif') no-repeat center center;
-}
-
-#spinner.show {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.5s ease-out, visibility 0s linear 0s;
-}
-/*** Spinner End ***/
-
-/*** Back To Top Start ***/
-.back-to-top {
-    position: fixed;
-    right: 30px;
-    bottom: 30px;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--bs-primary);
-    color: var(--bs-white);
-    border-radius: 50%;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s, visibility 0.5s, transform 0.3s;
-    z-index: 99;
-}
-
-.back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.back-to-top:hover {
-    background: var(--bs-secondary);
-    transform: scale(1.1);
-}
-/*** Back To Top End ***/
-
-/*** Button Start ***/
-.btn {
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    border: none;
-    cursor: pointer;
-    transition: all 0.5s ease;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-}
-
-.btn-primary {
-    background: var(--bs-primary);
-    color: var(--bs-white);
-}
-
-.btn-primary:hover {
-    background: var(--bs-secondary);
-    color: var(--bs-white);
-}
-
-.btn-secondary {
-    background: var(--bs-secondary);
-    color: var(--bs-white);
-    border: 1px solid var(--bs-secondary);
-}
-
-.btn-secondary:hover {
-    background: var(--bs-primary);
-    color: var(--bs-secondary);
-}
-
-/*** Button Shapes ***/
-.btn-square,
-.btn-sm-square,
-.btn-md-square,
-.btn-lg-square {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-weight: normal;
-    padding: 0;
-    transition: all 0.3s ease;
-}
-
-.btn-square { width: 32px; height: 32px; }
-.btn-sm-square { width: 34px; height: 34px; }
-.btn-md-square { width: 44px; height: 44px; }
-.btn-lg-square { width: 56px; height: 56px; }
-/*** Button End ***/
-
-/*** Topbar Start ***/
-.topbar {
-    padding: 2px 10px 2px 20px;
-    background: var(--bs-primary);
-    transition: all 0.5s;
-}
-
-.topbar a,
-.topbar a i {
-    transition: all 0.5s;
-}
-
-.topbar a:hover,
-.topbar a i:hover {
-    color: var(--bs-secondary);
-}
-
-@media (max-width: 768px) {
-    .topbar { display: none; }
-}
-/*** Topbar End ***/
-/* Page fade effect */
-#page-wrapper {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-/* When page is fully loaded */
-#page-wrapper.show {
-  opacity: 1;
-}
-
-/* Optional: fade out effect when navigating away */
-.fade-out {
-  opacity: 0 !important;
-}
-
 
