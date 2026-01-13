@@ -1,4 +1,4 @@
-body{
+/* body{
     font-family: Arial, sans-serif;
     background:#f5f5f5;
     margin:0;
@@ -113,4 +113,231 @@ body{
    background:white;
    color: #000;
  }
-  
+ .about-section {
+  max-width: 1100px;
+  margin: 90px auto 50px;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.image-container {
+  flex: 1 1 420px;
+  text-align: center;
+}
+
+.image-container img {
+  max-width: 480px;
+  border-radius: 18px;
+  border: 3px solid red;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.image-container img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 30px 60px red;
+}
+
+.text-container {
+  height: 10px;
+  flex: 10 1 20px;
+  background: linear-gradient(135deg, #1c1c1c, #2e2e2e);
+  padding: 30px;
+  border-radius: 18px;
+  border-left: 5px solid red;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+ 
+}
+
+.text-container marquee {
+  color: #f8f9fa;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.9;
+ 
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-container {
+    border-left: none;
+    border-top: 5px solid red;
+  }
+}
+   */
+/* ================= GLOBAL ================= */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f0f4f8; /* same as home */
+  color: #333;
+  margin: 0;
+  padding-top: 70px; /* for sticky navbar */
+  scroll-behavior: smooth;
+}
+
+/* ================= ABOUT SECTION ================= */
+.about-us {
+  max-width: 1100px;
+  margin: 50px auto;
+  background: #fff;
+  border-radius: 15px;
+  padding: 50px 40px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-us h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 25px;
+  color: #b91c1c;
+}
+
+.about-us img {
+  flex: 1 1 400px;
+  max-width: 480px;
+  border-radius: 15px;
+  border: 3px solid #b91c1c;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.about-us img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 30px 60px rgba(185, 28, 28, 0.3);
+}
+
+.about-us p {
+  flex: 2 1 500px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* ================= MARQUEE TEXT ================= */
+.text-container {
+  width: 100%;
+  background: linear-gradient(135deg, #1c1c1c, #2e2e2e);
+  padding: 15px 20px;
+  border-radius: 10px;
+  border-left: 5px solid #b91c1c;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  margin-bottom: 40px;
+}
+
+.text-container marquee {
+  color: #f8f9fa;
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background: #b91c1c;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.footer h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.footer p,
+.footer a {
+  font-size: 14px;
+  color: #fff;
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+.footer a:hover {
+  color: #f87171;
+}
+
+.social-icons a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.fb { background: #3b5998; }
+.yt { background: #ff0000; }
+.ig { background: palevioletred; }
+
+.newsletter input {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 5px;
+}
+
+.newsletter button {
+  padding: 10px 15px;
+  background: #fff;
+  color: #b91c1c;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.newsletter button:hover {
+  background: #b91c1c;
+  color: #fff;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .about-us {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-us img {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .newsletter input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
