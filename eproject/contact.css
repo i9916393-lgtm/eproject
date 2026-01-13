@@ -1,0 +1,74 @@
+/* ================= CONTACT SECTION ================= */
+.contactform {
+  background: #f87171; 
+  padding: 60px 20px;
+  border-radius: 15px;
+  color: #fff;
+  max-width: 1200px;
+  margin: 50px auto;
+}
+
+.contactform .card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.contactform .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+
+
+.contactform p {
+  color: #f8f9fa;
+}
+
+.contactform label {
+  color: #fff;
+  font-weight: 500;
+}
+
+.contactform input,
+.contactform textarea {
+  background-color: #fff; /* white inputs */
+  color: #000;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.contactform input:focus,
+.contactform textarea:focus {
+  outline: none;
+  border-color: #b91c1c;
+  box-shadow: 0 0 8px rgba(185, 28, 28, 0.4);
+}
+
+.contactform .btn-primary {
+  background: #b91c1c !important; /* home page red */
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.contactform .btn-primary:hover {
+  background: #f87171 !important;
+  transform: scale(1.05);
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .contactform {
+    padding: 40px 15px;
+  }
+}
