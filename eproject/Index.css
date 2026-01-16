@@ -38,11 +38,6 @@ img {
   transition: background-color 0.3s, padding 0.3s, box-shadow 0.3s;
 }
 
-.navbar.scrolled {
-  background-color:  #333; /* soft red */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 8px 25px;
-}
 
 .navbar-nav .nav-link {
   color: #333 !important;
@@ -68,7 +63,7 @@ img {
 }
 
 .navbar-nav .nav-link {
-  color: aliceblue!important;
+  color: black!important;
   margin-left: 15px;
   font-weight: 500;
   position: relative;
