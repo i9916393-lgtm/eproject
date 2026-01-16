@@ -1,74 +1,68 @@
+/* ================= GLOBAL ================= */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f0f4f8;
+  color: #333;
+}
+
 /* ================= CONTACT SECTION ================= */
 .contactform {
-  background: #f87171; 
-  padding: 60px 20px;
-  border-radius: 15px;
-  color: #fff;
-  max-width: 1200px;
-  margin: 50px auto;
+  background: #333;
+  padding: 80px 20px;
+  animation: fadeUp 1s ease both;
 }
 
-.contactform .card {
-  border: none;
-  border-radius: 15px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+.contact-card {
+  animation: zoomIn 0.8s ease both;
 }
 
-.contactform .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+.location-text {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 15px;
 }
 
-
-
-.contactform p {
-  color: #f8f9fa;
-}
-
-.contactform label {
-  color: #fff;
-  font-weight: 500;
-}
-
+/* Inputs */
 .contactform input,
 .contactform textarea {
-  background-color: #fff; /* white inputs */
-  color: #000;
   border-radius: 8px;
+  padding: 10px 15px;
   border: 1px solid #ccc;
-  padding: 10px;
-  width: 100%;
-  transition: all 0.3s ease;
 }
 
 .contactform input:focus,
 .contactform textarea:focus {
-  outline: none;
   border-color: #b91c1c;
-  box-shadow: 0 0 8px rgba(185, 28, 28, 0.4);
+  box-shadow: 0 0 0 0.2rem rgba(185, 28, 28, 0.25);
 }
 
+/* Button */
 .contactform .btn-primary {
-  background: #b91c1c !important; /* home page red */
+  background: #b91c1c;
   border: none;
-  padding: 12px 30px;
-  font-size: 16px;
-  font-weight: 500;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .contactform .btn-primary:hover {
-  background: #f87171 !important;
+  background: #111;
   transform: scale(1.05);
 }
 
+/* ================= ANIMATIONS ================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-/* RESPONSIVE */
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   .contactform {
-    padding: 40px 15px;
+    padding: 60px 15px;
   }
 }
+
