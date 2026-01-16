@@ -2,7 +2,7 @@
 /* ================= GLOBAL ================= */
 body {
   font-family: 'Poppins', sans-serif;
-  background: #f0f4f8; /* same as home */
+  background: #f0f4f8; 
   color: #333;
 
   scroll-behavior: smooth;
@@ -46,6 +46,7 @@ body {
 .image-container img:hover {
   transform: scale(1.06);
   box-shadow: 0 30px 60px red;
+
 }
 
 .text-container {
