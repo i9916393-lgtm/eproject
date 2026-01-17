@@ -25,16 +25,14 @@ body {
   color: #333;
 }
 
-
 img {
   max-width: 100%;
   height: auto;
 }
 
 /* ================= NAVBAR ================= */
-
 .navbar {
-   animation: slideInLeft 0.8s ease;
+  animation: slideInLeft 0.8s ease;
   background-color: #fff;
   padding: 12px 25px;
   position: sticky;
@@ -43,18 +41,18 @@ img {
   transition: background-color 0.3s, padding 0.3s, box-shadow 0.3s;
 }
 
-
 .navbar-nav .nav-link {
-  color: #333 !important;
+  position: relative;
+  color: black !important;
+  margin-left: 15px;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
-
-
 
 .navbar-brand img {
   height: 40px;
   width: auto;
-  transition: transform 0.3s ease;
-   max-width: 480px;
+  max-width: 480px;
   border-radius: 8px;
   border: 3px solid red;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
@@ -62,21 +60,12 @@ img {
 }
 
 .navbar-brand img:hover {
- 
-    transform: scale(1.06);
+  transform: scale(1.06);
   box-shadow: 0 30px 60px red;
 }
 
-.navbar-nav .nav-link {
-  color: black!important;
-  margin-left: 15px;
-  font-weight: 500;
-  position: relative;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-/* underline animation */
-.navbar-nav .nav-link::after {
+/* Navbar underline animation */
+.navbar-nav .nav-link::before {
   content: "";
   position: absolute;
   left: 0;
@@ -87,8 +76,8 @@ img {
   transition: width 0.3s ease;
 }
 
-.navbar-nav .nav-link:hover::after,
-.navbar-nav .nav-link.active::after {
+.navbar-nav .nav-link:hover::before,
+.navbar-nav .nav-link.active::before {
   width: 100%;
 }
 
@@ -98,24 +87,22 @@ img {
   transform: translateY(-2px);
 }
 
+/* Keep dropdown caret */
+.navbar .dropdown-toggle::after {
+  display: inline-block !important;
+}
+
 /* ================= CAROUSEL ================= */
 .carousel-item {
   position: relative;
 }
+
 .carousel {
   animation: fadeIn 1s ease-in;
 }
-.carousel-item::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  
-}
+
 .carousel-item img {
- width: 100%;
+  width: 100%;
   height: auto;
   max-height: 70vh;
   object-fit: cover;
@@ -125,6 +112,16 @@ img {
 
 .carousel-item.active img {
   transform: scale(1.03);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background: none !important;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: none !important;
 }
 
 @media (max-width: 768px) {
@@ -176,19 +173,6 @@ img {
   color: #555;
 }
 
-.category-card button {
-  margin-top: 10px;
-  padding: 8px 15px;
-  background: black;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.category-card button:hover {
-  background: red;
-}
 .Catagory {
   padding: 60px 20px;
   background: #fff;
@@ -197,7 +181,6 @@ img {
 
 .Catagory .card {
   animation: fadeUp 0.8s ease both;
-
   border: none;
   border-radius: 15px;
   overflow: hidden;
@@ -221,8 +204,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px; /* adds 30px space between cards */
-  margin: 0 -15px; /* optional, for consistent alignment */
+  gap: 30px;
 }
 
 .Catagory .row > div {
@@ -241,165 +223,102 @@ img {
     width: 100%;
   }
 }
+
+/* ================= DEALS / CARDS ================= */
 .deals {
   padding: 40px;
   text-align: center;
 }
+
 .cards {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  padding-top: 20px;
 }
+
 .card {
   border: 1px solid #ccc;
   width: 250px;
   padding: 15px;
-  
 }
+
 .card img {
   width: 100%;
 }
-.card button{
-     margin-top: 10px;
-  padding: 8px 15px;
-  background: black;
-  color: white;
-  border: none;
+
+/* ================= BRANDS ================= */
+.brands-section {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.brands-section h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.brands-logos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.brands-logos img {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: 0.3s;
   cursor: pointer;
-  border-radius: 4px;}
-  .card button:hover {
-  background: red;
-}
- .brands-section {
-        text-align: center;
-        padding: 40px 20px;
-    }
-
-    .brands-section h1 {
-        font-size: 36px;
-        margin-bottom: 30px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-
-    .brands-logos {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .brands-logos img {
-        width: 120px;
-        height: auto;
-        object-fit: contain;
-        filter: grayscale(100%);
-        transition: 0.3s;
-        cursor: pointer;
-    }
-
-    .brands-logos img:hover {
-        filter: grayscale(0%);
-        transform: scale(1.1);
-    }
-
- .brands-section {
-        text-align: center;
-        padding: 40px 20px;
-    }
-
-    .brands-section h1 {
-        font-size: 36px;
-        margin-bottom: 30px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-
-    .brands-logos {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .brands-logos img {
-        width: 120px;
-        height: auto;
-        object-fit: contain;
-        filter: grayscale(100%);
-        transition: 0.3s;
-        cursor: pointer;
-    }
-
-    .brands-logos img:hover {
-        filter: grayscale(0%);
-        transform: scale(1.1);
-    }
-/* ================= BUTTONS ================= */
-.btn-primary {
-  background: var(--primary) !important;
-  color: var(--white);
-  border-radius: 30px;
-  padding: 10px 28px;
-  font-weight: 500;
-  transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.btn-primary:hover {
-   background: var(--dark) !important;
-  transform: scale(1.05);
+.brands-logos img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1);
 }
-
 
 /* ================= ABOUT SECTION ================= */
 .about-section {
-    display: flex;
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 30px;
- background: var(--white);
+  background: var(--white);
   padding: 70px 20px;
   border-radius: 15px;
   color: #333;
-    animation: fadeUp 1s ease both;
+  animation: fadeUp 1s ease both;
 }
-
 
 .image-container {
   flex: 1 1 420px;
   text-align: center;
-
 }
 
 .image-container img {
-      max-width: 400px;
+  max-width: 400px;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
 }
-.about-us h1 {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 20px;
-}
-.about-us p {
-  flex: 1 1 400px;
-  line-height: 1.8;
-}
+
 .image-container img:hover {
   transform: scale(1.06);
   box-shadow: 0 30px 60px red;
 }
 
 .text-container {
-  height: 10px;
   flex: 10 1 20px;
   background: linear-gradient(135deg, #1c1c1c, #2e2e2e);
   padding: 30px;
   border-radius: 18px;
   border-left: 5px solid red;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
- height: 60px;
+  height: 60px;
 }
 
 .text-container marquee {
@@ -407,8 +326,12 @@ img {
   font-style: italic;
   font-size: 1.1rem;
   line-height: 1.9;
+}
 
- 
+/* ================= FOOTER / MEDIA ================= */
+.footer .social-icons a:hover {
+  background: #333;
+  color: #fff;
 }
 
 @media (max-width: 768px) {
@@ -423,55 +346,23 @@ img {
   }
 }
 
-
-
-.footer .social-icons a:hover {
-  background:  #333;
-  color: #fff;
-}
-.Catagory .row {
-  gap: 25px;
+@media (max-width: 576px) {
+  .text-container marquee {
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .Catagory .card {
-    width: 90%;
+  .footer .footer-container {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
-.Catagory{
-  padding:60px 20px;
-  background:#fff;
-}
-.Catagory .card{
-  border:none;
-  border-radius:15px;
-  overflow:hidden;
-  transition:.4s;
-}
-.Catagory .card img{
-  height:200px;
-  object-fit:cover;
-}
-.Catagory .card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 15px 30px rgba(0,0,0,.2);
-}
-
-.Catagory .row > div{
-  display:flex;
-  justify-content:center;
-}
-
+/* ================= ANIMATIONS ================= */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
@@ -480,15 +371,11 @@ img {
 }
 
 @keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
 }
+
+/* ================= DROPDOWN ================= */
 .dropdown-menu {
   animation: fadeUp 0.3s ease;
   border-radius: 10px;
@@ -500,88 +387,39 @@ img {
   background: #b91c1c;
   color: #fff;
 }
-@media (max-width: 576px) {
-  .text-container marquee {
-    font-size: 0.9rem;
-  }
-}
-@media (max-width: 768px) {
-  .footer .footer-container {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-/* ================= UNIFIED MODERN THEME ================= */
 
-.section-title {
-  font-size: 32px;
-  font-weight: 600;
-  margin-bottom: 30px;
-  text-align: center;
-  position: relative;
-}
-
-.section-title::after {
-  content: "";
-  width: 60px;
-  height: 3px;
-  background: var(--primary);
-  display: block;
-  margin: 10px auto 0;
-  border-radius: 10px;
-}
-
-/* -------- Unified Cards -------- */
-.product-card,
-.deals .card,
-.category-card {
-  background: #fff;
-  border-radius: 16px;
-  border: none;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  transition: all 0.35s ease;
-}
-
-.product-card:hover,
-.deals .card:hover,
-.category-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.15);
-}
-
-/* -------- Images -------- */
-.product-card img,
-.deals .card img,
-.category-card img {
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-/* -------- Buttons -------- */
+/* ================= UNIFIED BUTTON STYLE ================= */
 button,
 .btn,
-.btn-primary {
+.btn-primary,
+.Catagory .card button,
+.category-card button {
   background: linear-gradient(135deg, #b91c1c, #7f1d1d) !important;
+  color: #ffffff !important;
   border: none !important;
-  color: #fff !important;
-  padding: 10px 22px;
+  padding: 10px 26px;
   border-radius: 30px;
   font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   transition: all 0.3s ease;
 }
 
 button:hover,
-.btn:hover {
-  transform: scale(1.05);
+.btn:hover,
+.btn-primary:hover,
+.Catagory .card button:hover,
+.category-card button:hover {
   background: #1f2933 !important;
-}
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 25px;
-  padding-top: 20px;
+  transform: scale(1.06);
 }
 
-/* ================= THEME COLORS ================= */
-
-
+button:focus,
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.35);
+}
