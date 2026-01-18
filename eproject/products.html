@@ -5,9 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Camera Store</title>
     <link rel="stylesheet" href="products.css"> 
+  
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
-    
+    <nav class="navbar reveal navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+    <!-- LOGO -->
+    <a class="navbar-brand logo" href="Index.html">
+      <img src="images/Screenshot_4-1-2026_23308_.jpeg" alt="FotoLab">
+    </a>
+
+    <!-- TOGGLER -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- LINKS + SEARCH -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="Index.html">Home</a>
+        </li>
+
+        <!-- Cameras Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Cameras
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">DSLR Cameras</a></li>
+            <li><a class="dropdown-item" href="#">Mirrorless Cameras</a></li>
+            <li><a class="dropdown-item" href="#">Action Cameras</a></li>
+          </ul>
+        </li>
+
+        <!-- Accessories Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Accessories
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Tripods</a></li>
+            <li><a class="dropdown-item" href="#">Bags</a></li>
+            <li><a class="dropdown-item" href="#">Memory Cards</a></li>
+            <li><a class="dropdown-item" href="#">Batteries</a></li>
+          </ul>
+        </li>
+
+        <!-- Lenses Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Lenses
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Wide Angle</a></li>
+            <li><a class="dropdown-item" href="#">Prime Lens</a></li>
+            <li><a class="dropdown-item" href="#">Telephoto</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="products.html">Products</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+
+        <!-- Cart Icon -->
+        <li class="nav-item">
+          <a class="nav-link position-relative" href="#">
+            <i class="bi bi-cart fs-5"></i>
+            <span id="cartCount" class="badge bg-danger position-absolute top-0 start-100 translate-middle">
+              0
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- SEARCH FORM -->
+      <form class="d-flex ms-lg-3 search-form" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button id="searchBtn" type="submit">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+
+    </div>
+  </div>
+</nav>
+
    <h1> Our Cameras</h1>
 <div class="cart-count">🛒 Cart Items: <span id="count">0</span></div>
 
@@ -367,6 +464,8 @@
     <button class="btn buy" onclick="buyNow(this, 1)">Buy Now</button>
     <button class="btn cart" onclick="addToCart(this)">Add to Cart</button>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
  <script>
   let cartCount = 0;
 
@@ -390,6 +489,60 @@
   }
 
   </script>
+<script>
+  // Navbar scroll shadow
+  window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Cart counter (works on every page)
+  let cartCount = 0;
+  const cartBadge = document.getElementById("cartCount");
+
+  document.querySelectorAll(".btn-primary").forEach(btn => {
+    btn.addEventListener("click", function () {
+      cartCount++;
+      cartBadge.textContent = cartCount;
+    });
+  });
+
+  // Dropdown hover on desktop
+  if (window.innerWidth > 992) {
+    document.querySelectorAll(".dropdown").forEach(drop => {
+      drop.addEventListener("mouseenter", function () {
+        this.classList.add("show");
+        this.querySelector(".dropdown-menu").classList.add("show");
+      });
+      drop.addEventListener("mouseleave", function () {
+        this.classList.remove("show");
+        this.querySelector(".dropdown-menu").classList.remove("show");
+      });
+    });
+  }
+</script>
+<script>
+  // Hover dropdown for desktop
+  document.querySelectorAll('.navbar .dropdown').forEach(function (dropdown) {
+    dropdown.addEventListener('mouseenter', function () {
+      if (window.innerWidth > 992) {
+        dropdown.classList.add('show');
+        dropdown.querySelector('.dropdown-menu').classList.add('show');
+      }
+    });
+
+    dropdown.addEventListener('mouseleave', function () {
+      if (window.innerWidth > 992) {
+        dropdown.classList.remove('show');
+        dropdown.querySelector('.dropdown-menu').classList.remove('show');
+      }
+    });
+  });
+</script>
 
 </body>
 </html>

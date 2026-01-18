@@ -4,6 +4,142 @@ body {
   background: #f0f4f8;
   color: #333;
 }
+/* ================= NAVBAR ================= */
+.navbar {
+  animation: slideInLeft 0.8s ease;
+  background-color: #fff;
+  padding: 12px 25px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: background-color 0.3s, padding 0.3s, box-shadow 0.3s;
+}
+
+.navbar-nav .nav-link {
+  position: relative;
+  color: black !important;
+  margin-left: 15px;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-brand img {
+  height: 40px;
+  width: auto;
+  max-width: 480px;
+  border-radius: 8px;
+  border: 3px solid red;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.navbar-brand img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 30px 60px red;
+}
+
+/* Navbar underline animation */
+.navbar-nav .nav-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: red;
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::before,
+.navbar-nav .nav-link.active::before {
+  width: 100%;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: red !important;
+  transform: translateY(-2px);
+}
+
+/* Dropdown caret */
+.navbar .dropdown-toggle::after {
+  display: inline-block !important;
+}
+
+/* Search Form */
+.search-form input {
+  width: 220px;
+  border-radius: 8px;
+}
+
+.search-form button {
+  background: #b91c1c;
+  border: none;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+.search-form button:hover {
+  background: #111;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .search-form {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .search-form input {
+    width: 100%;
+  }
+
+  .navbar-nav {
+    margin-top: 10px;
+  }
+}
+
+.navbar.scrolled {
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+/* ================= DROPDOWN ================= */
+.dropdown-menu {
+  animation: fadeUp 0.35s ease forwards;
+  transform-origin: top;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.dropdown.show .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-item:hover {
+  background: #b91c1c;
+  color: #fff;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
 
 /* ================= CONTACT SECTION ================= */
 .contactform {
@@ -160,5 +296,136 @@ body.dark-mode .btn-primary {
 .fade-up.show {
   opacity: 1;
   transform: translateY(0);
+}
+/* ================= DROPDOWN ================= */
+.dropdown-menu {
+  animation: fadeUp 0.35s ease forwards;
+  transform-origin: top;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.dropdown.show .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-item:hover {
+  background: #b91c1c;
+  color: #fff;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+/* ================= ENHANCED FAQ ================= */
+.faq-section {
+  background: #fff;
+  padding: 80px 20px;
+}
+
+.faq-section h2 {
+  font-size: 36px;
+  color: #111;
+}
+
+.faq-section .accordion {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.accordion-item {
+  border: none;
+  border-radius: 14px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.accordion-button {
+  font-weight: 600;
+  background: linear-gradient(90deg, #fff 0%, #f8fafc 100%);
+  color: #111;
+  padding: 18px 20px;
+  border-radius: 14px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #b91c1c;
+  background: #fff;
+}
+
+.accordion-button::after {
+  content: "+";
+  font-size: 22px;
+  font-weight: 700;
+  color: #b91c1c;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #b91c1c;
+  transition: transform 0.3s ease;
+}
+
+.accordion-button:not(.collapsed)::after {
+  content: "−";
+  transform: rotate(180deg);
+}
+
+.accordion-body {
+  background: #fff;
+  padding: 18px 20px 22px;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.accordion-collapse {
+  transition: all 0.5s ease;
+}
+
+/* Dark Mode FAQ */
+body.dark-mode .faq-section {
+  background: #111;
+}
+
+body.dark-mode .accordion-item {
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .accordion-button {
+  background: #111;
+  color: #fff;
+}
+
+body.dark-mode .accordion-button:not(.collapsed) {
+  color: #ef4444;
+}
+
+body.dark-mode .accordion-body {
+  background: #1f2933;
+  color: #d1d5db;
 }
 
