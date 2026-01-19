@@ -114,14 +114,19 @@
   </li>
 
 </ul>
-  <form class="d-flex">
-        <input id="siteSearch" class="form-control me-2" type="search" placeholder="Search products & videos" aria-label="Search">
+<form class="d-flex" id="searchForm">
+  <input id="siteSearch" class="form-control me-2" type="search" placeholder="Search products & videos" aria-label="Search">
 
-       <button id="searchBtn">
+  <button id="searchBtn" type="button">
     <i class="bi bi-search"></i>
   </button>
-      </form>
+
+  <div id="searchResults" class="search-results"></div>
+</form>
+
+
     </div>
+
 
   </nav>
 
@@ -774,34 +779,328 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const searchInput = document.getElementById("siteSearch");
+  const resultsBox = document.getElementById("searchResults");
+
+  // Prevent form submission (just in case)
+  const searchForm = document.getElementById("searchForm");
+  searchForm.addEventListener("submit", function(e){
+    e.preventDefault();
+  });
+
+  // GET ALL ITEMS
+  const productCards = document.querySelectorAll(".Catagory .card");
+  const videoCards = document.querySelectorAll(".video-card");
+
+  function highlightText(element, query) {
+    const regex = new RegExp(`(${query})`, "gi");
+    element.innerHTML = element.innerText.replace(regex, "<span class='highlight'>$1</span>");
+  }
+
+  function performSearch(query) {
+    query = query.trim().toLowerCase();
+    let count = 0;
+
+    productCards.forEach(card => {
+      const title = card.querySelector(".card-title").innerText.toLowerCase();
+      const match = title.includes(query);
+      card.style.display = match ? "block" : "none";
+
+      if (match) {
+        count++;
+        highlightText(card.querySelector(".card-title"), query);
+      }
+    });
+
+    videoCards.forEach(card => {
+      const title = card.querySelector("h4").innerText.toLowerCase();
+      const match = title.includes(query);
+      card.style.display = match ? "block" : "none";
+
+      if (match) {
+        count++;
+        highlightText(card.querySelector("h4"), query);
+      }
+    });
+
+    return count;
+  }
+
+  function showSuggestions(query) {
+    resultsBox.innerHTML = "";
+    resultsBox.style.display = "none";
+
+    if (!query) return;
+
+    const suggestions = [];
+
+    productCards.forEach(card => {
+      const title = card.querySelector(".card-title").innerText;
+      if (title.toLowerCase().includes(query.toLowerCase())) {
+        suggestions.push(title);
+      }
+    });
+
+    videoCards.forEach(card => {
+      const title = card.querySelector("h4").innerText;
+      if (title.toLowerCase().includes(query.toLowerCase())) {
+        suggestions.push(title);
+      }
+    });
+
+    if (suggestions.length > 0) {
+      resultsBox.style.display = "block";
+      suggestions.slice(0, 5).forEach(item => {
+        const div = document.createElement("div");
+        div.className = "item";
+        div.innerText = item;
+        div.addEventListener("click", () => {
+          searchInput.value = item;
+          performSearch(item);
+          resultsBox.style.display = "none";
+        });
+        resultsBox.appendChild(div);
+      });
+    }
+  }
+
+  searchInput.addEventListener("input", function () {
+    const query = this.value;
+    showSuggestions(query);
+    performSearch(query);
+  });
+
+});
+const activeTab = document.querySelector(".tab-btn.active");
+const activeCat = activeTab ? activeTab.dataset.cat : null;
+
+if(activeCat) {
+  document.querySelectorAll(".video-card").forEach(card => {
+    const title = card.querySelector("h4").innerText.toLowerCase();
+    card.style.display = title.includes(query.toLowerCase()) ? "block" : "none";
+  });
+}
+
+</script>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
   const searchInput = document.getElementById("siteSearch");
+  const resultsBox = document.getElementById("searchResults");
 
-  searchInput.addEventListener("input", function () {
-    const query = this.value.toLowerCase();
+  // 1️⃣ GET ALL ITEMS
+  const productCards = document.querySelectorAll(".Catagory .card");
+  const videoCards = document.querySelectorAll(".video-card");
 
-    // SEARCH PRODUCT CARDS
-    document.querySelectorAll(".Catagory .card").forEach(card => {
+  // 2️⃣ HELPER FUNCTION: HIGHLIGHT TEXT
+  function highlightText(element, query) {
+    const regex = new RegExp(`(${query})`, "gi");
+    element.innerHTML = element.innerText.replace(regex, "<span class='highlight'>$1</span>");
+  }
+
+  // 3️⃣ SEARCH FUNCTION
+  function performSearch(query) {
+    query = query.trim().toLowerCase();
+    let count = 0;
+
+    // SEARCH PRODUCTS
+    productCards.forEach(card => {
       const title = card.querySelector(".card-title").innerText.toLowerCase();
-      if (title.includes(query)) {
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
+      const match = title.includes(query);
+
+      card.style.display = match ? "block" : "none";
+
+      if (match) {
+        count++;
+        highlightText(card.querySelector(".card-title"), query);
       }
     });
 
     // SEARCH VIDEOS
-    document.querySelectorAll(".video-card").forEach(card => {
+    videoCards.forEach(card => {
       const title = card.querySelector("h4").innerText.toLowerCase();
-      if (title.includes(query)) {
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
+      const match = title.includes(query);
+
+      card.style.display = match ? "block" : "none";
+
+      if (match) {
+        count++;
+        highlightText(card.querySelector("h4"), query);
       }
     });
+
+    return count;
+  }
+
+  // 4️⃣ SEARCH SUGGESTIONS
+  function showSuggestions(query) {
+    resultsBox.innerHTML = "";
+    resultsBox.style.display = "none";
+
+    if (!query) return;
+
+    const suggestions = [];
+
+    productCards.forEach(card => {
+      const title = card.querySelector(".card-title").innerText;
+      if (title.toLowerCase().includes(query.toLowerCase())) {
+        suggestions.push(title);
+      }
+    });
+
+    videoCards.forEach(card => {
+      const title = card.querySelector("h4").innerText;
+      if (title.toLowerCase().includes(query.toLowerCase())) {
+        suggestions.push(title);
+      }
+    });
+
+    if (suggestions.length > 0) {
+      resultsBox.style.display = "block";
+      suggestions.slice(0, 5).forEach(item => {
+        const div = document.createElement("div");
+        div.className = "item";
+        div.innerText = item;
+        div.addEventListener("click", () => {
+          searchInput.value = item;
+          performSearch(item);
+          resultsBox.style.display = "none";
+        });
+        resultsBox.appendChild(div);
+      });
+    }
+  }
+
+  // 5️⃣ EVENT LISTENER
+  searchInput.addEventListener("input", function () {
+    const query = this.value;
+
+    // SHOW SUGGESTIONS
+    showSuggestions(query);
+
+    // SEARCH ONLY WITHIN CURRENT CATEGORY
+    const activeTab = document.querySelector(".tab-btn.active");
+    const activeCat = activeTab ? activeTab.dataset.cat : null;
+
+    if (activeCat) {
+      // FILTER videos only (if active tab is video category)
+      document.querySelectorAll(".video-card").forEach(card => {
+        const title = card.querySelector("h4").innerText.toLowerCase();
+        card.style.display = title.includes(query.toLowerCase()) ? "block" : "none";
+      });
+
+      // If you want search to ONLY work inside videos,
+      // comment out the product section above.
+    }
+
+    // SEARCH BOTH (if you want full search)
+    const count = performSearch(query);
+
+    // SHOW COUNT
+    console.log("Search results: " + count);
+  });
+
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const searchInput = document.getElementById("siteSearch");
+  const resultsBox = document.getElementById("searchResults");
+
+  // Prevent form submission (no page reload)
+  const searchForm = document.getElementById("searchForm");
+  searchForm.addEventListener("submit", function(e){
+    e.preventDefault();
+  });
+
+  // Get all cards
+  const productCards = document.querySelectorAll(".Catagory .card");
+  const videoCards = document.querySelectorAll(".video-card");
+
+  function highlightText(element, query) {
+    const regex = new RegExp(`(${query})`, "gi");
+    element.innerHTML = element.innerText.replace(regex, "<span class='highlight'>$1</span>");
+  }
+
+  function performSearch(query) {
+    query = query.trim().toLowerCase();
+    let count = 0;
+
+    productCards.forEach(card => {
+      const title = card.querySelector(".card-title").innerText.toLowerCase();
+      const match = title.includes(query);
+
+      card.style.display = match ? "block" : "none";
+
+      if (match) {
+        count++;
+        highlightText(card.querySelector(".card-title"), query);
+      }
+    });
+
+    videoCards.forEach(card => {
+      const title = card.querySelector("h4").innerText.toLowerCase();
+      const match = title.includes(query);
+
+      card.style.display = match ? "block" : "none";
+
+      if (match) {
+        count++;
+        highlightText(card.querySelector("h4"), query);
+      }
+    });
+
+    return count;
+  }
+
+  function showSuggestions(query) {
+    resultsBox.innerHTML = "";
+    resultsBox.style.display = "none";
+
+    if (!query) return;
+
+    const suggestions = [];
+
+    productCards.forEach(card => {
+      const title = card.querySelector(".card-title").innerText;
+      if (title.toLowerCase().includes(query.toLowerCase())) {
+        suggestions.push(title);
+      }
+    });
+
+    videoCards.forEach(card => {
+      const title = card.querySelector("h4").innerText;
+      if (title.toLowerCase().includes(query.toLowerCase())) {
+        suggestions.push(title);
+      }
+    });
+
+    if (suggestions.length > 0) {
+      resultsBox.style.display = "block";
+      suggestions.slice(0, 5).forEach(item => {
+        const div = document.createElement("div");
+        div.className = "item";
+        div.innerText = item;
+        div.addEventListener("click", () => {
+          searchInput.value = item;
+          performSearch(item);
+          resultsBox.style.display = "none";
+        });
+        resultsBox.appendChild(div);
+      });
+    }
+  }
+
+  searchInput.addEventListener("input", function () {
+    const query = this.value;
+    showSuggestions(query);
+    performSearch(query);
   });
 
 });
