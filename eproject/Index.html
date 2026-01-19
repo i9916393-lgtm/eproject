@@ -115,7 +115,8 @@
 
 </ul>
   <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <input id="siteSearch" class="form-control me-2" type="search" placeholder="Search products & videos" aria-label="Search">
+
        <button id="searchBtn">
     <i class="bi bi-search"></i>
   </button>
@@ -150,23 +151,28 @@
     </div>
 
   </section>
-<section class="video-guide-section">
-  <h2>Camera Buying Guide</h2>
-  <p class="video-subtitle">
-    Learn how to choose the perfect camera for your needs
-  </p>
+  <!-- ==================================Video section========================================= -->
+<section class="video-cards-section">
+  <h2>Video Tutorials & Reviews</h2>
 
-  <div class="video-wrapper">
-    <iframe
-  loading="lazy"
-  src="https://www.youtube.com/embed/VIDEO_ID"
-  title="Camera Guide"
-  allowfullscreen>
-</iframe>
-
+  <div class="video-tabs">
+    <button class="tab-btn active" data-cat="guide">Guide</button>
+    <button class="tab-btn" data-cat="reviews">Reviews</button>
+    <button class="tab-btn" data-cat="accessories">Accessories</button>
   </div>
+
+  <div class="video-cards-grid" id="videoGrid"></div>
 </section>
 
+<!-- ✔️ ADD THIS MODAL HERE -->
+<div class="video-modal" id="videoModal">
+  <div class="video-modal-content">
+    <span class="close-modal" onclick="closeVideo()">×</span>
+    <iframe id="modalVideo" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- ==============================================Video section ended here================================== -->
   <main>
        <div class="brands-section  reveal">
     <h1>Brands</h1>
@@ -280,10 +286,12 @@
     <div class="video-card">
 <iframe
   loading="lazy"
-  src="https://www.youtube.com/embed/VIDEO_ID"
-  title="Camera Guide"
+  src="https://www.youtube.com/embed/s0jK9I8F5To"
+  title="DSLR vs Mirrorless"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
+
 
       <h4>DSLR vs Mirrorless</h4>
     </div>
@@ -291,19 +299,22 @@
     <div class="video-card">
       <iframe
   loading="lazy"
-  src="https://www.youtube.com/embed/VIDEO_ID"
-  title="Camera Guide"
+  src="https://www.youtube.com/embed/kE9Pp8g5a4M"
+  title="Best Camera for Beginners"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
+
 
       <h4>Best Camera for Beginners</h4>
     </div>
 
     <div class="video-card">
-      <iframe
+     <iframe
   loading="lazy"
-  src="https://www.youtube.com/embed/VIDEO_ID"
-  title="Camera Guide"
+  src="https://www.youtube.com/embed/FZ6X5y8k1YQ"
+  title="Top Camera Accessories"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen>
 </iframe>
 
@@ -646,9 +657,10 @@ window.addEventListener("load", () => {
   <span id="toggleIcon">🌙</span>
 </button>
 
-<button class="btn buy" onclick="openVideo('VIDEO_ID')">
+<button class="btn buy" onclick="openVideo('V7z7BAZdt2M')">
   Watch Review
 </button>
+
 
 <script>
 const toggle = document.getElementById("darkToggle");
@@ -673,56 +685,125 @@ toggle.addEventListener("click", () => {
   }, 150);
 });
 </script>
-<div class="video-modal" id="videoModal">
-  <div class="video-modal-content">
-    <span class="close-modal" onclick="closeVideo()">×</span>
-    <iframe id="modalVideo" allowfullscreen></iframe>
-  </div>
-</div>
-<script>
-function openVideo(videoId) {
-  const modal = document.getElementById("videoModal");
-  const iframe = document.getElementById("modalVideo");
-  iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-  modal.style.display = "flex";
-}
 
-function closeVideo() {
-  const modal = document.getElementById("videoModal");
-  const iframe = document.getElementById("modalVideo");
-  iframe.src = "";
-  modal.style.display = "none";
-}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  // ======= MODAL =======
+  function openVideo(videoId) {
+    const modal = document.getElementById("videoModal");
+    const iframe = document.getElementById("modalVideo");
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+    modal.style.display = "flex";
+  }
+
+  function closeVideo() {
+    const modal = document.getElementById("videoModal");
+    const iframe = document.getElementById("modalVideo");
+    iframe.src = "";
+    modal.style.display = "none";
+  }
+
+  window.openVideo = openVideo;
+  window.closeVideo = closeVideo;
+
+  // ======= VIDEO DATA =======
+  const videoData = {
+    guide: [
+      { id: "V7z7BAZdt2M", title: "How to Choose Your First Camera", desc: "Beginner camera buying guide." }
+    ],
+    reviews: [
+      { id: "s0jK9I8F5To", title: "DSLR vs Mirrorless", desc: "Which one is best for you?" },
+      { id: "kE9Pp8g5a4M", title: "Best Cameras for Beginners", desc: "Top beginner cameras." }
+    ],
+    accessories: [
+      { id: "FZ6X5y8k1YQ", title: "Must-Have Camera Accessories", desc: "Best accessories for beginners." }
+    ]
+  };
+
+  const videoGrid = document.getElementById("videoGrid");
+
+  // ======= SCROLL ANIMATION =======
+  let videoObserver;
+
+  function initVideoObserver() {
+    if (videoObserver) videoObserver.disconnect();
+
+    videoObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("video-show");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll(".video-card").forEach(v => videoObserver.observe(v));
+  }
+
+  // ======= LOAD VIDEOS =======
+  function loadVideos(category) {
+    videoGrid.innerHTML = "";
+
+    videoData[category].forEach(video => {
+      const card = document.createElement("div");
+      card.classList.add("video-card");
+      card.innerHTML = `
+        <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" alt="${video.title}">
+        <div class="play-icon"><i class="bi bi-play-fill"></i></div>
+        <h4>${video.title}</h4>
+        <p>${video.desc}</p>
+      `;
+
+      card.addEventListener("click", () => openVideo(video.id));
+      videoGrid.appendChild(card);
+    });
+
+    initVideoObserver();
+  }
+
+  // ======= TAB BUTTONS =======
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      loadVideos(btn.dataset.cat);
+    });
+  });
+
+  loadVideos("guide");
+
+});
 </script>
 
 <script>
-/* ===== VIDEO SCROLL ANIMATION ===== */
-const videoItems = document.querySelectorAll(
-  ".video-wrapper, .video-card"
-);
+document.addEventListener("DOMContentLoaded", function () {
 
-const videoObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("video-show");
-    }
+  const searchInput = document.getElementById("siteSearch");
+
+  searchInput.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+
+    // SEARCH PRODUCT CARDS
+    document.querySelectorAll(".Catagory .card").forEach(card => {
+      const title = card.querySelector(".card-title").innerText.toLowerCase();
+      if (title.includes(query)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    // SEARCH VIDEOS
+    document.querySelectorAll(".video-card").forEach(card => {
+      const title = card.querySelector("h4").innerText.toLowerCase();
+      if (title.includes(query)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
   });
-}, { threshold: 0.2 });
 
-videoItems.forEach(v => videoObserver.observe(v));
-
-/* ===== IFRAME LAZY FADE ===== */
-document.querySelectorAll("iframe").forEach(iframe => {
-  iframe.addEventListener("load", () => {
-    iframe.classList.add("loaded");
-  });
-});
-
-/* ===== TRACK VIDEO CLICKS (NO CONFLICT) ===== */
-document.querySelectorAll(".video-card, .video-wrapper").forEach(video => {
-  video.addEventListener("click", () => {
-    console.log("🎬 Video clicked:", video.querySelector("h4")?.innerText || "Guide Video");
-  });
 });
 </script>
 
