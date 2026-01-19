@@ -225,6 +225,33 @@ window.addEventListener("scroll", function () {
     });
   });
 </script>
+<button id="darkToggle" class="dark-toggle">
+  <span id="toggleIcon">🌙</span>
+</button>
 
+
+<script>
+const toggle = document.getElementById("darkToggle");
+const icon = document.getElementById("toggleIcon");
+
+toggle.addEventListener("click", () => {
+  document.body.classList.add("dark-transition");
+
+  setTimeout(() => {
+    document.body.classList.toggle("dark");
+
+    // Icon animation
+    if (document.body.classList.contains("dark")) {
+      icon.textContent = "🌞";
+      icon.style.transform = "rotate(360deg)";
+    } else {
+      icon.textContent = "🌙";
+      icon.style.transform = "rotate(-360deg)";
+    }
+
+    document.body.classList.remove("dark-transition");
+  }, 150);
+});
+</script>
 </body>
 </html>

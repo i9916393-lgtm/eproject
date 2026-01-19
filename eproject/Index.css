@@ -810,3 +810,18 @@ body.dark .dark-toggle {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+/* ===== DARK MODE NAVBAR TEXT FIX ===== */
+body.dark .navbar-nav .nav-link,
+body.dark .navbar-nav .nav-link.active {
+  color: #ffffff !important;
+}
+
+/* underline color in dark mode */
+body.dark .navbar-nav .nav-link::before {
+  background-color: #ffffff;
+}
+
+/* hover effect */
+body.dark .navbar-nav .nav-link:hover {
+  color: #f87171 !important; /* soft red hover */
+}
