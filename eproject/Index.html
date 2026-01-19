@@ -150,6 +150,22 @@
     </div>
 
   </section>
+<section class="video-guide-section">
+  <h2>Camera Buying Guide</h2>
+  <p class="video-subtitle">
+    Learn how to choose the perfect camera for your needs
+  </p>
+
+  <div class="video-wrapper">
+    <iframe
+  loading="lazy"
+  src="https://www.youtube.com/embed/VIDEO_ID"
+  title="Camera Guide"
+  allowfullscreen>
+</iframe>
+
+  </div>
+</section>
 
   <main>
        <div class="brands-section  reveal">
@@ -256,6 +272,47 @@
     </div>
   </div>
 </section>
+<section class="video-cards-section">
+  <h2>Video Tutorials & Reviews</h2>
+
+  <div class="video-cards-grid">
+
+    <div class="video-card">
+<iframe
+  loading="lazy"
+  src="https://www.youtube.com/embed/VIDEO_ID"
+  title="Camera Guide"
+  allowfullscreen>
+</iframe>
+
+      <h4>DSLR vs Mirrorless</h4>
+    </div>
+
+    <div class="video-card">
+      <iframe
+  loading="lazy"
+  src="https://www.youtube.com/embed/VIDEO_ID"
+  title="Camera Guide"
+  allowfullscreen>
+</iframe>
+
+      <h4>Best Camera for Beginners</h4>
+    </div>
+
+    <div class="video-card">
+      <iframe
+  loading="lazy"
+  src="https://www.youtube.com/embed/VIDEO_ID"
+  title="Camera Guide"
+  allowfullscreen>
+</iframe>
+
+      <h4>Top Camera Accessories</h4>
+    </div>
+
+  </div>
+</section>
+
     <!-- =================== Catagory Section ================ -->
     <section class="Catagory">
       <div class="row g-4 mt-4 justify-content-center">
@@ -589,6 +646,9 @@ window.addEventListener("load", () => {
   <span id="toggleIcon">🌙</span>
 </button>
 
+<button class="btn buy" onclick="openVideo('VIDEO_ID')">
+  Watch Review
+</button>
 
 <script>
 const toggle = document.getElementById("darkToggle");
@@ -613,7 +673,58 @@ toggle.addEventListener("click", () => {
   }, 150);
 });
 </script>
+<div class="video-modal" id="videoModal">
+  <div class="video-modal-content">
+    <span class="close-modal" onclick="closeVideo()">×</span>
+    <iframe id="modalVideo" allowfullscreen></iframe>
+  </div>
+</div>
+<script>
+function openVideo(videoId) {
+  const modal = document.getElementById("videoModal");
+  const iframe = document.getElementById("modalVideo");
+  iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+  modal.style.display = "flex";
+}
 
+function closeVideo() {
+  const modal = document.getElementById("videoModal");
+  const iframe = document.getElementById("modalVideo");
+  iframe.src = "";
+  modal.style.display = "none";
+}
+</script>
+
+<script>
+/* ===== VIDEO SCROLL ANIMATION ===== */
+const videoItems = document.querySelectorAll(
+  ".video-wrapper, .video-card"
+);
+
+const videoObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("video-show");
+    }
+  });
+}, { threshold: 0.2 });
+
+videoItems.forEach(v => videoObserver.observe(v));
+
+/* ===== IFRAME LAZY FADE ===== */
+document.querySelectorAll("iframe").forEach(iframe => {
+  iframe.addEventListener("load", () => {
+    iframe.classList.add("loaded");
+  });
+});
+
+/* ===== TRACK VIDEO CLICKS (NO CONFLICT) ===== */
+document.querySelectorAll(".video-card, .video-wrapper").forEach(video => {
+  video.addEventListener("click", () => {
+    console.log("🎬 Video clicked:", video.querySelector("h4")?.innerText || "Guide Video");
+  });
+});
+</script>
 
 </body>
 
