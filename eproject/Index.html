@@ -120,8 +120,11 @@
   <button id="searchBtn" type="button">
     <i class="bi bi-search"></i>
   </button>
+<div id="searchCount" class="search-count"></div>
 
   <div id="searchResults" class="search-results"></div>
+  <button type="button" id="clearSearch" class="clear-btn">✕</button>
+
 </form>
 
 
@@ -157,25 +160,7 @@
 
   </section>
   <!-- ==================================Video section========================================= -->
-<section class="video-cards-section">
-  <h2>Video Tutorials & Reviews</h2>
 
-  <div class="video-tabs">
-    <button class="tab-btn active" data-cat="guide">Guide</button>
-    <button class="tab-btn" data-cat="reviews">Reviews</button>
-    <button class="tab-btn" data-cat="accessories">Accessories</button>
-  </div>
-
-  <div class="video-cards-grid" id="videoGrid"></div>
-</section>
-
-<!-- ✔️ ADD THIS MODAL HERE -->
-<div class="video-modal" id="videoModal">
-  <div class="video-modal-content">
-    <span class="close-modal" onclick="closeVideo()">×</span>
-    <iframe id="modalVideo" allowfullscreen></iframe>
-  </div>
-</div>
 
 <!-- ==============================================Video section ended here================================== -->
   <main>
@@ -283,50 +268,27 @@
     </div>
   </div>
 </section>
+
 <section class="video-cards-section">
   <h2>Video Tutorials & Reviews</h2>
 
-  <div class="video-cards-grid">
-
-    <div class="video-card">
-<iframe
-  loading="lazy"
-  src="https://www.youtube.com/embed/s0jK9I8F5To"
-  title="DSLR vs Mirrorless"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
-
-
-      <h4>DSLR vs Mirrorless</h4>
-    </div>
-
-    <div class="video-card">
-      <iframe
-  loading="lazy"
-  src="https://www.youtube.com/embed/kE9Pp8g5a4M"
-  title="Best Camera for Beginners"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
-
-
-      <h4>Best Camera for Beginners</h4>
-    </div>
-
-    <div class="video-card">
-     <iframe
-  loading="lazy"
-  src="https://www.youtube.com/embed/FZ6X5y8k1YQ"
-  title="Top Camera Accessories"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-</iframe>
-
-      <h4>Top Camera Accessories</h4>
-    </div>
-
+  <div class="video-tabs">
+    <button class="tab-btn active" data-cat="guide">Guide</button>
+    <button class="tab-btn" data-cat="reviews">Reviews</button>
+    <button class="tab-btn" data-cat="accessories">Accessories</button>
   </div>
+
+  <div class="video-cards-grid" id="videoGrid"></div>
+</section>
+
+<!-- ✔️ ADD THIS MODAL HERE -->
+<div class="video-modal" id="videoModal">
+  <div class="video-modal-content">
+    <span class="close-modal" onclick="closeVideo()">×</span>
+    <video src="https://www.youtube.com/watch?v=DUiPLfeoRHk&pp=ygUSY2FtZXJhIGd1aWRlIHZpZGVv"id="modalVideo" controls autoplay playsinline></video>
+  </div>
+</div>
+
 </section>
 
     <!-- =================== Catagory Section ================ -->
@@ -580,15 +542,13 @@ document.getElementById("contactBtn").addEventListener("click", function (e) {
 </script>
 <script>
 let cartCount = 0;
-const cartBadge = document.getElementById("cartCount");
-
 document.querySelectorAll(".btn-primary").forEach(btn => {
-  btn.addEventListener("click", function () {
+  btn.addEventListener("click", () => {
     cartCount++;
-    cartBadge.textContent = cartCount;
-    alert("🛒 Item added to cart!");
+    document.getElementById("cartCount").textContent = cartCount;
   });
 });
+
 </script>
 <script>
 var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
@@ -695,38 +655,49 @@ toggle.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", function () {
 
   // ======= MODAL =======
-  function openVideo(videoId) {
-    const modal = document.getElementById("videoModal");
-    const iframe = document.getElementById("modalVideo");
-    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-    modal.style.display = "flex";
-  }
+  function openVideo(src) {
+  const modal = document.getElementById("videoModal");
+  const video = document.getElementById("modalVideo");
 
-  function closeVideo() {
-    const modal = document.getElementById("videoModal");
-    const iframe = document.getElementById("modalVideo");
-    iframe.src = "";
-    modal.style.display = "none";
-  }
+  video.src = src;
+  modal.style.display = "flex";
+  video.play();
+}
 
-  window.openVideo = openVideo;
-  window.closeVideo = closeVideo;
+function closeVideo() {
+  const modal = document.getElementById("videoModal");
+  const video = document.getElementById("modalVideo");
+
+  video.pause();
+  video.src = "";
+  modal.style.display = "none";
+}
 
   // ======= VIDEO DATA =======
-  const videoData = {
-    guide: [
-      { id: "V7z7BAZdt2M", title: "How to Choose Your First Camera", desc: "Beginner camera buying guide." }
-    ],
-    reviews: [
-      { id: "s0jK9I8F5To", title: "DSLR vs Mirrorless", desc: "Which one is best for you?" },
-      { id: "kE9Pp8g5a4M", title: "Best Cameras for Beginners", desc: "Top beginner cameras." }
-    ],
-    accessories: [
-      { id: "FZ6X5y8k1YQ", title: "Must-Have Camera Accessories", desc: "Best accessories for beginners." }
-    ]
-  };
+const videoData = {
+  guide: [
+    {
+      src: "videos/camera-guide.mp4",
+      title: "How to Choose Your First Camera",
+      desc: "Beginner camera buying guide."
+    }
+  ],
+  reviews: [
+    {
+      src: "videos/dslr-vs-mirrorless.mp4",
+      title: "DSLR vs Mirrorless",
+      desc: "Which one is best for you?"
+    }
+  ],
+  accessories: [
+    {
+      src: "videos/accessories.mp4",
+      title: "Must-Have Camera Accessories",
+      desc: "Best accessories for beginners."
+    }
+  ]
+};
 
-  const videoGrid = document.getElementById("videoGrid");
 
   // ======= SCROLL ANIMATION =======
   let videoObserver;
@@ -746,25 +717,21 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ======= LOAD VIDEOS =======
-  function loadVideos(category) {
-    videoGrid.innerHTML = "";
+function loadVideos(category) {
+  videoGrid.innerHTML = "";
 
-    videoData[category].forEach(video => {
-      const card = document.createElement("div");
-      card.classList.add("video-card");
-      card.innerHTML = `
-        <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" alt="${video.title}">
-        <div class="play-icon"><i class="bi bi-play-fill"></i></div>
-        <h4>${video.title}</h4>
-        <p>${video.desc}</p>
-      `;
-
-      card.addEventListener("click", () => openVideo(video.id));
-      videoGrid.appendChild(card);
-    });
-
-    initVideoObserver();
-  }
+  videoData[category].forEach(video => {
+    const card = document.createElement("div");
+    card.className = "video-card";
+    card.innerHTML = `
+      <div class="play-icon">▶</div>
+      <h4>${video.title}</h4>
+      <p>${video.desc}</p>
+    `;
+    card.onclick = () => openVideo(video.src);
+    videoGrid.appendChild(card);
+  });
+}
 
   // ======= TAB BUTTONS =======
   document.querySelectorAll(".tab-btn").forEach(btn => {
@@ -780,109 +747,129 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+const searchInput = document.getElementById("siteSearch");
+const resultsBox = document.getElementById("searchResults");
+let debounce;
 
-  const searchInput = document.getElementById("siteSearch");
-  const resultsBox = document.getElementById("searchResults");
-
-  // Prevent form submission (just in case)
-  const searchForm = document.getElementById("searchForm");
-  searchForm.addEventListener("submit", function(e){
-    e.preventDefault();
-  });
-
-  // GET ALL ITEMS
-  const productCards = document.querySelectorAll(".Catagory .card");
-  const videoCards = document.querySelectorAll(".video-card");
-
-  function highlightText(element, query) {
-    const regex = new RegExp(`(${query})`, "gi");
-    element.innerHTML = element.innerText.replace(regex, "<span class='highlight'>$1</span>");
-  }
-
-  function performSearch(query) {
-    query = query.trim().toLowerCase();
-    let count = 0;
-
-    productCards.forEach(card => {
-      const title = card.querySelector(".card-title").innerText.toLowerCase();
-      const match = title.includes(query);
-      card.style.display = match ? "block" : "none";
-
-      if (match) {
-        count++;
-        highlightText(card.querySelector(".card-title"), query);
-      }
-    });
-
-    videoCards.forEach(card => {
-      const title = card.querySelector("h4").innerText.toLowerCase();
-      const match = title.includes(query);
-      card.style.display = match ? "block" : "none";
-
-      if (match) {
-        count++;
-        highlightText(card.querySelector("h4"), query);
-      }
-    });
-
-    return count;
-  }
-
-  function showSuggestions(query) {
-    resultsBox.innerHTML = "";
-    resultsBox.style.display = "none";
-
-    if (!query) return;
-
-    const suggestions = [];
-
-    productCards.forEach(card => {
-      const title = card.querySelector(".card-title").innerText;
-      if (title.toLowerCase().includes(query.toLowerCase())) {
-        suggestions.push(title);
-      }
-    });
-
-    videoCards.forEach(card => {
-      const title = card.querySelector("h4").innerText;
-      if (title.toLowerCase().includes(query.toLowerCase())) {
-        suggestions.push(title);
-      }
-    });
-
-    if (suggestions.length > 0) {
-      resultsBox.style.display = "block";
-      suggestions.slice(0, 5).forEach(item => {
-        const div = document.createElement("div");
-        div.className = "item";
-        div.innerText = item;
-        div.addEventListener("click", () => {
-          searchInput.value = item;
-          performSearch(item);
-          resultsBox.style.display = "none";
-        });
-        resultsBox.appendChild(div);
-      });
-    }
-  }
-
-  searchInput.addEventListener("input", function () {
-    const query = this.value;
-    showSuggestions(query);
-    performSearch(query);
-  });
-
+searchInput.addEventListener("input", function () {
+  clearTimeout(debounce);
+  debounce = setTimeout(() => runSearch(this.value), 300);
 });
-const activeTab = document.querySelector(".tab-btn.active");
-const activeCat = activeTab ? activeTab.dataset.cat : null;
 
-if(activeCat) {
+function runSearch(query) {
+  query = query.toLowerCase().trim();
+
+  document.querySelectorAll(".Catagory .card").forEach(card => {
+    const titleEl = card.querySelector(".card-title");
+    const match = titleEl.innerText.toLowerCase().includes(query);
+    card.style.display = match ? "block" : "none";
+    if (match && query) highlight(titleEl, query);
+  });
+
   document.querySelectorAll(".video-card").forEach(card => {
-    const title = card.querySelector("h4").innerText.toLowerCase();
-    card.style.display = title.includes(query.toLowerCase()) ? "block" : "none";
+    const titleEl = card.querySelector("h4");
+    const match = titleEl.innerText.toLowerCase().includes(query);
+    card.style.display = match ? "block" : "none";
+    if (match && query) highlight(titleEl, query);
   });
 }
+
+function highlight(el, text) {
+  const regex = new RegExp(`(${text})`, "gi");
+  el.innerHTML = el.innerText.replace(regex, "<span class='highlight'>$1</span>");
+}
+if (!query) {
+  document.querySelectorAll(".Catagory .card, .video-card").forEach(el => {
+    el.style.display = "block";
+  });
+  return;
+}
+
+
+
+
+// Mobile keyboard optimization
+searchInput.setAttribute("inputmode", "search");
+searchInput.setAttribute("enterkeyhint", "search");
+
+
+// Cache product cards once
+const productCards = Array.from(document.querySelectorAll(".Catagory .card"));
+
+searchInput.addEventListener("input", function () {
+  clearTimeout(debounce);
+  debounce = setTimeout(() => runSearch(this.value), 250);
+});
+
+// Hide suggestions on blur (mobile friendly)
+searchInput.addEventListener("blur", () => {
+  setTimeout(() => resultsBox.style.display = "none", 150);
+});
+
+function runSearch(query) {
+  query = query.toLowerCase().trim();
+  resultsBox.innerHTML = "";
+  let suggestions = [];
+
+  // 🔹 PRODUCT SEARCH
+  productCards.forEach(card => {
+    const titleEl = card.querySelector(".card-title");
+    const text = titleEl.innerText;
+    const match = text.toLowerCase().includes(query);
+
+    card.style.display = !query || match ? "block" : "none";
+
+    if (match && query) {
+      highlight(titleEl, query);
+      suggestions.push(text);
+    }
+  });
+
+  // 🔹 VIDEO SEARCH (ONLY ACTIVE TAB)
+  const activeTab = document.querySelector(".tab-btn.active");
+  if (activeTab) {
+    document.querySelectorAll(".video-card").forEach(card => {
+      const titleEl = card.querySelector("h4");
+      const text = titleEl.innerText;
+      const match = text.toLowerCase().includes(query);
+
+      card.style.display = !query || match ? "block" : "none";
+
+      if (match && query) {
+        highlight(titleEl, query);
+        suggestions.push(text);
+      }
+    });
+  }
+
+  // 🔹 SHOW SUGGESTIONS
+  if (query && suggestions.length) {
+    resultsBox.style.display = "block";
+    suggestions.slice(0, 6).forEach(item => {
+      const div = document.createElement("div");
+      div.className = "item";
+      div.innerText = item;
+
+      div.onclick = () => {
+        searchInput.value = item;
+        runSearch(item);
+        resultsBox.style.display = "none";
+        searchInput.blur(); // hides mobile keyboard
+      };
+
+      resultsBox.appendChild(div);
+    });
+  } else {
+    resultsBox.style.display = "none";
+  }
+}
+
+// Highlight helper
+function highlight(el, text) {
+  const regex = new RegExp(`(${text})`, "gi");
+  el.innerHTML = el.innerText.replace(regex, "<span class='highlight'>$1</span>");
+}
+
 
 </script>
 
@@ -1006,6 +993,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+const clearBtn = document.getElementById("clearSearch");
+
+searchInput.addEventListener("input", () => {
+  clearBtn.style.display = searchInput.value ? "inline" : "none";
+});
+
+clearBtn.addEventListener("click", () => {
+  searchInput.value = "";
+  runSearch("");
+  clearBtn.style.display = "none";
+  searchInput.focus();
+});
+
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -1104,6 +1104,146 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  /* ================= VIDEO MODAL ================= */
+  const modal = document.getElementById("videoModal");
+  const iframe = document.getElementById("modalVideo");
+
+  window.openVideo = function (videoId) {
+    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+    modal.style.display = "flex";
+  };
+
+  window.closeVideo = function () {
+    iframe.src = "";
+    modal.style.display = "none";
+  };
+
+  /* ================= VIDEO DATA ================= */
+  const videoData = {
+    guide: [
+      { id: "V7z7BAZdt2M", title: "How to Choose Your First Camera", desc: "Beginner camera buying guide." }
+    ],
+    reviews: [
+      { id: "s0jK9I8F5To", title: "DSLR vs Mirrorless", desc: "Which one is best for you?" },
+      { id: "kE9Pp8g5a4M", title: "Best Cameras for Beginners", desc: "Top beginner cameras." }
+    ],
+    accessories: [
+      { id: "FZ6X5y8k1YQ", title: "Must-Have Camera Accessories", desc: "Best accessories for beginners." }
+    ]
+  };
+
+  const videoGrid = document.getElementById("videoGrid");
+
+  function loadVideos(category) {
+    videoGrid.innerHTML = "";
+
+    videoData[category].forEach(video => {
+      const card = document.createElement("div");
+      card.className = "video-card";
+      card.innerHTML = `
+        <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg">
+        <div class="play-icon"><i class="bi bi-play-fill"></i></div>
+        <h4>${video.title}</h4>
+        <p>${video.desc}</p>
+      `;
+      card.onclick = () => openVideo(video.id);
+      videoGrid.appendChild(card);
+    });
+  }
+
+  /* ================= TAB SWITCH ================= */
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      loadVideos(btn.dataset.cat);
+    });
+  });
+
+  loadVideos("guide");
+
+  /* ================= SEARCH SYSTEM ================= */
+  let results = 0;
+if (match && query) results++;
+
+  const searchInput = document.getElementById("siteSearch");
+  const resultsBox = document.getElementById("searchResults");
+  const productCards = document.querySelectorAll(".Catagory .card");
+
+  function highlight(el, text) {
+    const regex = new RegExp(`(${text})`, "gi");
+    el.innerHTML = el.innerText.replace(regex, "<span class='highlight'>$1</span>");
+  }
+
+  function performSearch(query) {
+    query = query.toLowerCase().trim();
+
+    productCards.forEach(card => {
+      const title = card.querySelector(".card-title").innerText.toLowerCase();
+      card.style.display = title.includes(query) ? "block" : "none";
+      if (query) highlight(card.querySelector(".card-title"), query);
+    });
+
+    document.querySelectorAll(".video-card").forEach(card => {
+      const title = card.querySelector("h4").innerText.toLowerCase();
+      card.style.display = title.includes(query) ? "block" : "none";
+      if (query) highlight(card.querySelector("h4"), query);
+    });
+  }
+
+  searchInput.addEventListener("input", function () {
+    performSearch(this.value);
+  });
+
+});
+document.getElementById("searchCount").textContent =
+  query ? `${results} results found` : "";
+function fuzzyMatch(text, query) {
+  let t = text.toLowerCase();
+  let q = query.toLowerCase();
+  let ti = 0;
+
+  for (let qi = 0; qi < q.length; qi++) {
+    ti = t.indexOf(q[qi], ti);
+    if (ti === -1) return false;
+    ti++;
+  }
+  return true;
+}
+const match =
+  text.toLowerCase().includes(query) ||
+  fuzzyMatch(text, query);
+localStorage.setItem("lastSearch", searchInput.value);
+const saved = localStorage.getItem("lastSearch");
+if (saved) {
+  searchInput.value = saved;
+  runSearch(saved);
+}
+self.onmessage = e => {
+  const { items, query } = e.data;
+  const q = query.toLowerCase();
+
+  const results = items.filter(item =>
+    item.toLowerCase().includes(q)
+  );
+
+  self.postMessage(results);
+};
+const worker = new Worker("searchWorker.js");
+
+worker.onmessage = e => {
+  console.log("Worker results:", e.data);
+};
+
+worker.postMessage({
+  items: productCards.map(c => c.innerText),
+  query
+});
+
 </script>
 
 </body>
