@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Store</title>
+    <link rel="stylesheet" href="lences.css"> 
+  
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar reveal navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+    <!-- LOGO -->
+    <a class="navbar-brand logo" href="Index.html">
+      <img src="images/Screenshot_4-1-2026_23308_.jpeg" alt="FotoLab">
+    </a>
+
+    <!-- TOGGLER -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- LINKS + SEARCH -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="Index.html">Home</a>
+        </li>
+
+        <!-- Cameras Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Cameras
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">DSLR Cameras</a></li>
+            <li><a class="dropdown-item" href="#">Mirrorless Cameras</a></li>
+            <li><a class="dropdown-item" href="#">Action Cameras</a></li>
+          </ul>
+        </li>
+
+        <!-- Accessories Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Accessories
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Tripods</a></li>
+            <li><a class="dropdown-item" href="#">Bags</a></li>
+            <li><a class="dropdown-item" href="#">Memory Cards</a></li>
+            <li><a class="dropdown-item" href="#">Batteries</a></li>
+          </ul>
+        </li>
+
+        <!-- Lenses Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Lenses
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Wide Angle</a></li>
+            <li><a class="dropdown-item" href="#">Prime Lens</a></li>
+            <li><a class="dropdown-item" href="#">Telephoto</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="products.html">Products</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+
+        <!-- Cart Icon -->
+        <li class="nav-item">
+          <a class="nav-link position-relative" href="#">
+            <i class="bi bi-cart fs-5"></i>
+            <span id="cartCount" class="badge bg-danger position-absolute top-0 start-100 translate-middle">
+              0
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- SEARCH FORM -->
+      <form class="d-flex ms-lg-3 search-form" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button id="searchBtn" type="submit">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+
+    </div>
+  </div>
+</nav>
+
+   <h1> Our lences</h1>
+<div class="cart-count">🛒 Cart Items: <span id="count">0</span></div>
+
+
+    <!-- Cards Container -->
+     <h2>Nikon Lences</h2>
+    <div class="cards-container">
+
+        <!-- Loop of 30 cards -->
+        <div class="card">
+            <img src="images\lenses\lenses\nikon lenses\Nikon AF-S 50mm.jpg" alt="Lences 1" >
+            <div class="card-content">
+                <p>Nikon AF-S 50mmf/1.8G
+Type: Prime
+Focal Length: 50mm
+Aperture: f/1.8
+Price: ₨40,000– ₨50,000
+Highlight: Sharp and lightweight lens for everyday portraits</p>
+               <div class="buttons">
+             <button class="btn buy" onclick="buyNow(this, 1)">Buy Now</button>
+            <button class="btn cart" onclick="addToCart(this)">Add to Cart</button>
+</div>
+</div>
+ </div>
+        <div class="card">
+            <img src="images\lenses\lenses\nikon lenses\Nikon AF-S 24-70mm.jpg" alt="Lences 2">
+            <div class="card-content">
+                <p>Nikon AF-S 24-70mm f/2.8E ED VR
+Type: Standard Zoom
+Focal Length: 24-70mm
+Aperture: f/2.8
+Price: ₨280,000– ₨320,000
+Highlight: Versatile professional lens with vibration reduction</p>
+  <div class="buttons">
+    <button class="btn buy" onclick="buyNow(this, 1)">Buy Now</button>
+    <button class="btn cart" onclick="addToCart(this)">Add to Cart</button>
+  </div>
+</div>
+</div>
+        <div class="card">
+            <img src="images\lenses\lenses\nikon lenses\Nikon AF-S 70-200mm.jpg" alt="Lences 3">
+            <div class="card-content">
+                <p>Nikon AF-S 70-200mm f/2.8E FL ED VR
+Type: Telephoto Zoom
+Focal Length: 70-200mm
+Aperture: f/2.8
+Price: ₨380,000– ₨430,000
+Highlight: Fast and sharp for sports and wildlife photography</p>
+               <div class="buttons">
+   <button class="btn buy" onclick="buyNow(this, 1)">Buy Now</button>
+   <button class="btn cart" onclick="addToCart(this)">Add to Cart</button>
+</div>
+</div>
+</div>
+        <div class="card">
+            <img src="images\lenses\lenses\nikon lenses\Nikon AF-P DX 10-20mm.jpg" alt="Lences 4">
+            <div class="card-content">
+                <p>Nikon AF-P DX10-20mm f/4.5-5.6G VR
+Type: Wide Angle Zoom
+Focal Length: 10-20mm
+Aperture: f/4.5-5.6
+Price: ₨70,000– ₨90,000
+Highlight: Perfect for landscapes and architecture with wide view</p>
+            <div class="buttons">
+   <button class="btn buy" onclick="buyNow(this, 1)">Buy Now</button>
+   <button class="btn cart" onclick="addToCart(this)">Add to Cart</button>
+</div>
+</div>
+</div>
+        <div class="card">
+            <img src="images\lenses\lenses\nikon lenses\Nikon Micro 105mm.jpg" alt="Lences 5">
+            <div class="card-content">
+                <p>Nikon Micro 105mm f/2.8G IF-ED VR
+Type: Macro
+Focal Length: 105mm
+Aperture: f/2.8
+Price: ₨210,000– ₨250,000
+Highlight: Incredible macro details with stabilization</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buyNow(this, 1)">Buy Now</button>
+    <button class="btn cart" onclick="addToCart(this)">Add to Cart</button>
+</div>
+</div>
+</div>
+        <div class="card">
+            <img src="images\lenses\lenses\nikon lenses\Nikon AF-S 85mm.jpg" alt="Lences 6">
+            <div class="card-content">
+                <p>Nikon AF-S 85mmf/1.8G
+Type: Portrait Prime
+Focal Length: 85mm
+Aperture: f/1.8
+Price: ₨120,000– ₨150,000
+Highlight: Beautiful background blur for portraits</p>
+                <div class="buttons">
+   <button class="btn buy" onclick="buyNow(this, 1)">Buy Now</button>
+   <button class="btn cart" onclick="addToCart(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+<h2>Canon Lences</h2>
+        <div class="card">
+            <img src="images\lenses\lenses\canon-50mm-f-1.jpg" alt="Lences 7">
+            <div class="card-content">
+                <p>Canon EF50mmf/1.8 STM
+Type: Prime
+Focal Length: 50mm
+Aperture: f/1.8
+Price: ₨35,000– ₨45,000
+Highlight: Excellent sharpness with affordable price, perfect for portraits</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\lenses\lenses\Canon EF 24-70mm.jpg" alt="Lences 8">
+            <div class="card-content">
+                <p>Canon EF24-70mm f/2.8L II USM
+Type: Standard Zoom
+Focal Length: 24-70mm
+Aperture: f/2.8
+Price: ₨260,000– ₨300,000
+Highlight: Professional-grade all-rounder lens with superb clarity
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+<h2>Nikon Cameras</h2>
+        <div class="card">
+            <img src="images\lenses\lenses\Canon EF 70-200mm.jpg" alt="Lences 9">
+            <div class="card-content">
+                <p>Canon EF70-200mm f/2.8L IS III USM
+Type: Telephoto Zoom
+Focal Length: 70-200mm
+Aperture: f/2.8
+Price: ₨350,000– ₨400,000
+Highlight: Perfect for sports and wildlife with fast focusing</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\lenses\lenses\Canon EF 16-35mm.jpg" alt="Lences 10">
+            <div class="card-content">
+                <p>Canon EF16-35mm f/4L IS USM
+Type: Wide Angle Zoom
+Focal Length: 16-35mm
+Aperture: f/4
+Price: ₨180,000– ₨220,000
+Highlight: Stunning landscapes with sharp edge-to-edge performance</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+        <div class="card">
+            <img src="images\lenses\lenses\Canon EF 100mm.jpg" alt="Lences 11">
+            <div class="card-content">
+                <p>Canon EF100mm f/2.8L Macro IS USM
+Type: Macro
+Focal Length: 100mm
+Aperture: f/2.8
+Price: ₨190,000– ₨220,000
+Highlight: Amazing close-up details with built-in stabilization</p>
+              <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\lenses\lenses\Canon RF 85mm.jpg" alt="Lences 12">
+            <div class="card-content">
+                <p>Canon RF85mmf/1.2L USM
+Type: Portrait Prime
+Focal Length: 85mm
+Aperture: f/1.2
+Price: ₨520,000– ₨580,000
+Highlight: Ultra-creamy bokeh for stunning portrait shots</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+        </div>
+</div>
+<h2>Fujifilm Lences</h2>
+        <div class="card">
+            <img src="images\lenses\lenses\fujifilm lenses\Fujifilm XF 23mm.jpg" alt="Lences 13">
+            <div class="card-content">
+              <p> Fujifilm XF 23mm f/2 R WR
+Type: Prime
+Focal Length: 23mm
+Aperture: f/2
+Price: ₨80,000– ₨95,000
+Highlight: Compact and weather-resistant for street photography</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\lenses\lenses\fujifilm lenses\Fujifilm XF 18-55mm.jpg" alt="Lences 14">
+            <div class="card-content">
+                <p>Fujifilm XF 18-55mm f/2.8-4 R LM OIS
+Type: Standard Zoom
+Focal Length: 18-55mm
+Aperture: f/2.8-4
+Price: ₨120,000– ₨150,000
+Highlight: Excellent all-round kit lens with stabilization</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\lenses\lenses\fujifilm lenses\Fujifilm XF 50-140mm .jpg" alt="Lences 15">
+            <div class="card-content">
+                <p>Fujifilm XF 50-140mm f/2.8 R LM OIS WR
+Type: Telephoto Zoom
+Focal Length: 50-140mm
+Aperture: f/2.8
+Price: ₨320,000– ₨360,000
+Highlight: Professional telephoto with fast focusing</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\lenses\lenses\fujifilm lenses\Fujifilm XF 10-24mm.jpg" alt="Lences 16">
+            <div class="card-content">
+                <p>Fujifilm XF 10-24mm f/4 R OIS
+Type: Wide Angle Zoom
+Focal Length: 10-24mm
+Aperture: f/4
+Price: ₨200,000– ₨240,000
+Highlight: Sharp wide-angle lens for landscapes</p>
+              <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+<h2>Panasonic Cameras</h2>
+        <div class="card">
+            <img src="images\lenses\lenses\fujifilm lenses\Fujifilm XF 80mm.jpg" alt="Lences 17">
+            <div class="card-content">
+                <p> Fujifilm XF 80mm f/2.8 R LM OIS WR Macro
+Type: Macro
+Focal Length: 80mm
+Aperture: f/2.8
+Price: ₨250,000– ₨290,000
+Highlight: Outstanding macro with stabilization and sharpness</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\lenses\lenses\fujifilm lenses\Fujifilm XF 56mm.jpg" alt="Lences 18">
+            <div class="card-content">
+                <p>Fujifilm XF 56mm f/1.2 R
+Type: Portrait Prime
+Focal Length: 56mm
+Aperture: f/1.2
+Price: ₨200,000– ₨230,000
+Highlight: Amazing portrait lens with creamy bokeh</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+<h2>Sony Lences</h2>
+        <div class="card">
+            <img src="images\lenses\lenses\sony lenses\Sony FE 50mm.jpg" alt="Lences 19">
+            <div class="card-content">
+                <p>Sony FE 50mmf/1.8
+Type: Prime
+Focal Length: 50mm
+Aperture: f/1.8
+Price: ₨55,000– ₨70,000
+Highlight: Affordable prime with excellent sharpness</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\lenses\lenses\sony lenses\Sony FE 24-70mm.jpg" alt="Lences 20">
+            <div class="card-content">
+              <p> Sony FE 24-70mm f/2.8 GM
+Type: Standard Zoom
+Focal Length: 24-70mm
+Aperture: f/2.8
+Price: ₨320,000– ₨360,000
+Highlight: Professional zoom with premium clarity</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\lenses\lenses\sony lenses\Sony FE 70-200mm.jpg" alt="Lences 21">
+            <div class="card-content">
+                <p> Sony FE 70-200mm f/2.8 GM OSS
+Type: Telephoto Zoom
+Focal Length: 70-200mm
+Aperture: f/2.8
+Price: ₨450,000– ₨500,000
+Highlight: Perfect for sports and wildlife with image stabilization</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this,1)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\lenses\lenses\sony lenses\Sony FE 16-35mm.jpg" alt="Lences 22">
+            <div class="card-content">
+                <p> Sony FE 16-35mm f/2.8 GM
+Type: Wide Angle Zoom
+Focal Length: 16-35mm
+Aperture: f/2.8
+Price: ₨300,000– ₨340,000
+Highlight: Stunning wide-angle for landscapes and architecture</p>
+              <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\lenses\lenses\sony lenses\Sony FE 90mm.jpg" alt="Lences 23">
+            <div class="card-content">
+                <p> Sony FE 90mmf/2.8 Macro G OSS
+Type: Macro
+Focal Length: 90mm
+Aperture: f/2.8
+Price: ₨250,000– ₨280,000
+Highlight: Best macro lens with super sharp details</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\lenses\lenses\sony lenses\Sony FE 85mm.jpg" alt="Lences 24">
+            <div class="card-content">
+                <p> Sony FE 85mmf/1.4 GM
+Type: Portrait Prime
+Focal Length: 85mm
+Aperture: f/1.4
+Price: ₨400,000– ₨450,000
+Highlight: Incredible portrait lens with dreamy bokeh
+</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+<h2>Panasonic Lences</h2>
+        <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 25mm.jpg" alt="Lences 25">
+            <div class="card-content">
+                <p> Panasonic Lumix 25mm f/1.7
+Type: Prime
+Focal Length: 25mm
+Aperture: f/1.7
+Price: ₨55,000– ₨70,000
+Highlight: Affordable and bright prime for everyday shooting</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 12-60mm.jpg" alt="Lences 26">
+            <div class="card-content">
+                <p> Panasonic Lumix 12-60mm f/3.5-5.6
+Type: Standard Zoom
+Focal Length: 12-60mm
+Aperture: f/3.5-5.6
+Price: ₨90,000– ₨110,000
+Highlight: Great all-rounder lens with stabilisation<p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 50-200mm.jpg" alt="Lences 27">
+            <div class="card-content">
+                <p>Panasonic Lumix 50-200mm f/2.8-4
+Type: Telephoto Zoom
+Focal Length: 50-200mm
+Aperture: f/2.8-4
+Price: ₨180,000– ₨220,000
+Highlight: Lightweight telephoto for wildlife and sports</p>
+              <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="" alt="Lences 28">
+            <div class="card-content">
+                <p> Panasonic Lumix 7-14mm f/4
+Type: Wide Angle Zoom
+Focal Length: 7-14mm
+Aperture: f/4
+Price: ₨220,000– ₨250,000
+Highlight: Ultra wide-angle for landscapes and interiors</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 30mm.jpg" alt="Lences 29">
+            <div class="card-content">
+                <p>Panasonic Lumix 30mm f/2.8 Macro
+Type: Macro
+Focal Length: 30mm
+Aperture: f/2.8
+Price: ₨60,000– ₨80,000
+Highlight: Compact macro lens with great close-up detail</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+    <h2></h2>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 31">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+     <div class="card">
+            <img src="images\lenses\lenses\panasonic lenses\Panasonic Lumix 42.5mm.jpg" alt="Lences 30">
+            <div class="card-content">
+                <p>Panasonic Lumix 42.5mm f/1.7
+Type: Portrait Prime
+Focal Length: 42.5mm
+Aperture: f/1.7
+Price: ₨70,000– ₨90,000
+Highlight: Beautiful portraits with creamy background blur
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+ <script>
+  let cartCount = 0;
+
+  function buyNow(button, id){
+      const parent = button.parentElement;
+      const buttons = parent.querySelectorAll(".btn");
+      buttons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      alert("You selected Camera Model " + id);
+  }
+
+  function addToCart(button){
+      const parent = button.parentElement;
+      const buttons = parent.querySelectorAll(".btn");
+      buttons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      cartCount++;
+      document.getElementById("count").innerText = cartCount;
+  }
+
+  </script>
+<script>
+  // Navbar scroll shadow
+  window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Cart counter (works on every page)
+
+  const cartBadge = document.getElementById("cartCount");
+
+  document.querySelectorAll(".btn-primary").forEach(btn => {
+    btn.addEventListener("click", function () {
+      cartCount++;
+      cartBadge.textContent = cartCount;
+    });
+  });
+
+  // Dropdown hover on desktop
+  if (window.innerWidth > 992) {
+    document.querySelectorAll(".dropdown").forEach(drop => {
+      drop.addEventListener("mouseenter", function () {
+        this.classList.add("show");
+        this.querySelector(".dropdown-menu").classList.add("show");
+      });
+      drop.addEventListener("mouseleave", function () {
+        this.classList.remove("show");
+        this.querySelector(".dropdown-menu").classList.remove("show");
+      });
+    });
+  }
+</script>
+<script>
+  // Hover dropdown for desktop
+  document.querySelectorAll('.navbar .dropdown').forEach(function (dropdown) {
+    dropdown.addEventListener('mouseenter', function () {
+      if (window.innerWidth > 992) {
+        dropdown.classList.add('show');
+        dropdown.querySelector('.dropdown-menu').classList.add('show');
+      }
+    });
+
+    dropdown.addEventListener('mouseleave', function () {
+      if (window.innerWidth > 992) {
+        dropdown.classList.remove('show');
+        dropdown.querySelector('.dropdown-menu').classList.remove('show');
+      }
+    });
+  });
+</script>
+<button id="darkToggle" class="dark-toggle">
+  <span id="toggleIcon">🌙</span>
+</button>
+
+
+<script>
+const toggle = document.getElementById("darkToggle");
+const icon = document.getElementById("toggleIcon");
+
+toggle.addEventListener("click", () => {
+  document.body.classList.add("dark-transition");
+
+  setTimeout(() => {
+    document.body.classList.toggle("dark");
+
+    // Icon animation
+    if (document.body.classList.contains("dark")) {
+      icon.textContent = "🌞";
+      icon.style.transform = "rotate(360deg)";
+    } else {
+      icon.textContent = "🌙";
+      icon.style.transform = "rotate(-360deg)";
+    }
+
+    document.body.classList.remove("dark-transition");
+  }, 150);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Store</title>
+    <link rel="stylesheet" href="cameras.css"> 
+  
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar reveal navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+
+    <!-- LOGO -->
+    <a class="navbar-brand logo" href="Index.html">
+      <img src="images/Screenshot_4-1-2026_23308_.jpeg" alt="FotoLab">
+    </a>
+
+    <!-- TOGGLER -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- LINKS + SEARCH -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="Index.html">Home</a>
+        </li>
+
+        <!-- Cameras Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Cameras
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">DSLR Cameras</a></li>
+            <li><a class="dropdown-item" href="#">Mirrorless Cameras</a></li>
+            <li><a class="dropdown-item" href="#">Action Cameras</a></li>
+          </ul>
+        </li>
+
+        <!-- Accessories Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Accessories
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Tripods</a></li>
+            <li><a class="dropdown-item" href="#">Bags</a></li>
+            <li><a class="dropdown-item" href="#">Memory Cards</a></li>
+            <li><a class="dropdown-item" href="#">Batteries</a></li>
+          </ul>
+        </li>
+
+        <!-- Lenses Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            Lenses
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Wide Angle</a></li>
+            <li><a class="dropdown-item" href="#">Prime Lens</a></li>
+            <li><a class="dropdown-item" href="#">Telephoto</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="products.html">Products</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contact Us</a>
+        </li>
+
+        <!-- Cart Icon -->
+        <li class="nav-item">
+          <a class="nav-link position-relative" href="#">
+            <i class="bi bi-cart fs-5"></i>
+            <span id="cartCount" class="badge bg-danger position-absolute top-0 start-100 translate-middle">
+              0
+            </span>
+          </a>
+        </li>
+      </ul>
+
+      <!-- SEARCH FORM -->
+      <form class="d-flex ms-lg-3 search-form" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button id="searchBtn" type="submit">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+
+    </div>
+  </div>
+</nav>
+
+   <h1> Our Cameras</h1>
+<div class="cart-count">🛒 Cart Items: <span id="count">0</span></div>
+
+
+    <!-- Cards Container -->
+    <div class="cards-container">
+<h2>Canon Cameras</h2>
+        <!-- Loop of 30 cards -->
+        <div class="card">
+            <img src="images\foto lab camera images\canon-eos-90d.jpg" alt="Camera 1">
+            <div class="card-content">
+                <p> Canon EOS 90D
+Type: DSLR
+Resolution: 32.5 MP
+Price: ₨280,000– ₨320,000
+Highlight: High-resolution DSLR for serious photography and video lovers</p>
+               <div class="buttons">
+             <button class="btn buy" onclick="buyNow(this, 1)">Buy Now</button>
+            <button class="btn cart" onclick="addToCart(this)">Add to Cart</button>
+</div>
+</div>
+ </div>
+        <div class="card">
+            <img src="images\foto lab camera images\canon-eos-r10.jpg" alt="Camera 2">
+            <div class="card-content">
+                <p> Canon EOS R10
+Type: Mirrorless
+Resolution: 24.2 MP
+Price: ₨230,000– ₨260,000
+Highlight: Fast and lightweight mirrorless ideal for everyday creators</p>
+  <div class="buttons">
+    <button class="btn buy" onclick="buyNow(this, 1)">Buy Now</button>
+    <button class="btn cart" onclick="addToCart(this)">Add to Cart</button>
+  </div>
+</div>
+</div>
+        <div class="card">
+            <img src="images\foto lab camera images\canon-eos-r6-mark-ii.jpg" alt="Camera 3">
+            <div class="card-content">
+                <p> Canon EOS R6MarkII
+Type: Mirrorless
+Resolution: 24.2 MP
+Price: ₨620,000– ₨700,000
+Highlight: Professional full-frame performance with excellent low-light quality</p>
+               <div class="buttons">
+   <button class="btn buy" onclick="buyNow(this, 1)">Buy Now</button>
+   <button class="btn cart" onclick="addToCart(this)">Add to Cart</button>
+</div>
+</div>
+</div>
+        <div class="card">
+            <img src="images\foto lab camera images\canon-eos-5d-mark-iv.jpg" alt="Camera 4">
+            <div class="card-content">
+                <p>Canon EOS 5DMark IV
+Type: DSLR
+Resolution: 30.4 MP
+Price: ₨550,000– ₨600,000
+Highlight: Legendary professional DSLR trusted worldwide</p>
+            <div class="buttons">
+   <button class="btn buy" onclick="buyNow(this, 1)">Buy Now</button>
+   <button class="btn cart" onclick="addToCart(this)">Add to Cart</button>
+</div>
+</div>
+</div>
+        <div class="card">
+            <img src="images\foto lab camera images\canon-eos-200d-ii.jpg" alt="Camera 5">
+            <div class="card-content">
+                <p> Canon EOS 200DII
+Type: DSLR
+Resolution: 24.1 MP
+Price: ₨180,000– ₨210,000
+Highlight: Compact and beginner-friendly DSLR</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buyNow(this, 1)">Buy Now</button>
+    <button class="btn cart" onclick="addToCart(this)">Add to Cart</button>
+</div>
+</div>
+</div>
+        <div class="card">
+            <img src="images\foto lab camera images\canon-eos-m50-mark-ii.jpg" alt="Camera 6">
+            <div class="card-content">
+                <p>Canon EOS M50MarkII
+Type: Mirrorless
+Resolution: 24.1 MP
+Price: ₨200,000– ₨230,000
+Highlight: Popular choice for vloggers and content creators</p>
+                <div class="buttons">
+   <button class="btn buy" onclick="buyNow(this, 1)">Buy Now</button>
+   <button class="btn cart" onclick="addToCart(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\foto lab camera images\canon-eos-rp.jpg" alt="Camera 7">
+            <div class="card-content">
+                <p> Canon EOS RP
+Type: Mirrorless
+Resolution: 26.2 MP
+Price: ₨350,000– ₨390,000
+Highlight: Affordable entry into full-frame mirrorless cameras</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\foto lab camera images\canon-eos-rebel-t8i.jpg" alt="Camera 8">
+            <div class="card-content">
+                <p>Canon EOS Rebel T8i
+Type: DSLR
+Resolution: 24.1 MP
+Price: ₨250,000– ₨280,000
+Highlight: Versatile DSLR designed for learning and growth
+</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+<h2>Nikon Cameras</h2>
+        <div class="card">
+            <img src="images\foto lab camera images\nikon images\nikon-d3500-jpg.webp" alt="Camera 9">
+            <div class="card-content">
+                <p>Nikon D3500
+Type: DSLR
+Resolution: 24.2 MP
+Price: ₨140,000– ₨165,000
+Highlight: Perfect beginner DSLR with long battery life</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\foto lab camera images\nikon images\nikon-d5600-jpg.webp" alt="Camera 10">
+            <div class="card-content">
+                <p> Nikon D5600
+Type: DSLR
+Resolution: 24.2 MP
+Price: ₨190,000– ₨220,000
+Highlight: Easy-to-use DSLR with flip touchscreen</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+        <div class="card">
+            <img src="images\foto lab camera images\nikon images\nikon-d7500-jpg.webp" alt="Camera 11">
+            <div class="card-content">
+                <p> Nikon D7500
+Type: DSLR
+Resolution: 20.9 MP
+Price: ₨280,000– ₨320,000
+Highlight: Powerful DSLR for wildlife and sports photography</p>
+              <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\foto lab camera images\nikon images\nikon-d850-jpg.webp" alt="Camera 12">
+            <div class="card-content">
+                <p>Nikon D850
+Type: DSLR
+Resolution: 45.7 MP
+Price: ₨700,000– ₨780,000
+Highlight: Ultra-high resolution professional photography camera</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\foto lab camera images\nikon images\nikon-z-50-jpg.webp" alt="Camera 13">
+            <div class="card-content">
+              <p>Nikon Z50
+Type: Mirrorless
+Resolution: 20.9 MP
+Price: ₨230,000– ₨260,000
+Highlight: Compact mirrorless for travel and daily use</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\foto lab camera images\nikon images\nikon-z-6 II-jpg.webp" alt="Camera 14">
+            <div class="card-content">
+                <p>Nikon Z6 II
+Type: Mirrorless
+Resolution: 24.5 MP
+Price: ₨550,000– ₨600,000
+Highlight: Full-frame mirrorless with strong photo-video balance</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\foto lab camera images\nikon images\nikon-z7II-jpg.webp" alt="Camera 15">
+            <div class="card-content">
+                <p>Nikon Z7 II
+Type: Mirrorless
+Resolution: 45.7 MP
+Price: ₨750,000– ₨820,000
+Highlight: High-resolution mirrorless for studio professionals</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\foto lab camera images\nikon images\nikon-z30_jpg.webp" alt="Camera 16">
+            <div class="card-content">
+                <p>Nikon Z30
+Type: Mirrorless
+Resolution: 20.9 MP
+Price: ₨210,000– ₨240,000
+Highlight: Designed specially for vloggers and creators</p>
+              <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+<h2>Panasonic Cameras</h2>
+        <div class="card">
+            <img src="images\foto lab camera images\panasonic cameras\Panasonic Lumix G7.jpg" alt="Camera 17">
+            <div class="card-content">
+                <p>Panasonic Lumix G7
+Type: Mirrorless
+Resolution: 16 MP
+Price: ₨160,000– ₨190,000
+Highlight: Affordable mirrorless with strong video features</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\foto lab camera images\panasonic cameras\Panasonic Lumix G85.jpg" alt="Camera 18">
+            <div class="card-content">
+                <p>Panasonic Lumix G85
+Type: Mirrorless
+Resolution: 16 MP
+Price: ₨220,000– ₨250,000
+Highlight: Rugged camera for outdoor shooting</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\foto lab camera images\panasonic cameras\Panasonic Lumix GH5.jpg" alt="Camera 19">
+            <div class="card-content">
+                <p>Panasonic Lumix GH5
+Type: Mirrorless
+Resolution: 20.3 MP
+Price: ₨400,000– ₨450,000
+Highlight: Industry-famous camera for professional video</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images\foto lab camera images\panasonic cameras\Panasonic Lumix GH6.jpg" alt="Camera 20">
+            <div class="card-content">
+              <p>Panasonic Lumix GH6
+Type: Mirrorless
+Resolution: 25.2 MP
+Price: ₨600,000– ₨680,000
+Highlight: Advanced cinema-grade mirrorless camera</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/camera21.jpg" alt="Camera 21">
+            <div class="card-content">
+                <p>Panasonic Lumix S5
+Type: Mirrorless
+Resolution: 24.2 MP
+Price: ₨380,000– ₨420,000
+Highlight: Full-frame camera for hybrid creators</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this,1)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/camera22.jpg" alt="Camera 22">
+            <div class="card-content">
+                <p>Panasonic Lumix S1
+Type: Mirrorless
+Resolution: 24.2 MP
+Price: ₨650,000– ₨720,000
+Highlight: Professional full-frame build for serious creators</p>
+              <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/camera23.jpg" alt="Camera 23">
+            <div class="card-content">
+                <p>Panasonic Lumix LX100 II
+Type: Compact
+Resolution: 17 MP
+Price: ₨300,000– ₨340,000
+Highlight: Premium compact camera with large sensor</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/camera24.jpg" alt="Camera 24">
+            <div class="card-content">
+                <p>Panasonic Lumix FZ300
+Type: Bridge Camera
+Resolution: 12 MP
+Price: ₨200,000– ₨230,000
+Highlight: All-in-one camera with powerful zoom</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/camera25.jpg" alt="Camera 25">
+            <div class="card-content">
+                <p>Action camera with 4K recording and waterproof design for adventure sports.</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/camera26.jpg" alt="Camera 26">
+            <div class="card-content">
+                <p>Mirrorless camera with long battery life and compact design for travel.</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/camera27.jpg" alt="Camera 27">
+            <div class="card-content">
+                <p>DSLR perfect for wildlife photography with fast autofocus and high zoom lenses.</p>
+              <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/camera28.jpg" alt="Camera 28">
+            <div class="card-content">
+                <p>Compact digital camera with flip screen and Wi-Fi for vlogging and selfies.</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/camera29.jpg" alt="Camera 29">
+            <div class="card-content">
+                <p>High-end mirrorless camera with fast shutter speed and silent shooting mode.</p>
+               <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/camera30.jpg" alt="Camera 30">
+            <div class="card-content">
+                <p>DSLR with excellent low-light performance and multiple lens compatibility.</p>
+                <div class="buttons">
+    <button class="btn buy" onclick="buttonClick(this)">Buy Now</button>
+    <button class="btn cart" onclick="buttonClick(this)">Add to Cart</button>
+</div>
+
+            </div>
+        </div>
+
+    </div>
+ <div class="buttons">
+    <button class="btn buy" onclick="buyNow(this, 1)">Buy Now</button>
+    <button class="btn cart" onclick="addToCart(this)">Add to Cart</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+ <script>
+  let cartCount = 0;
+
+  function buyNow(button, id){
+      const parent = button.parentElement;
+      const buttons = parent.querySelectorAll(".btn");
+      buttons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      alert("You selected Camera Model " + id);
+  }
+
+  function addToCart(button){
+      const parent = button.parentElement;
+      const buttons = parent.querySelectorAll(".btn");
+      buttons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      cartCount++;
+      document.getElementById("count").innerText = cartCount;
+  }
+
+  </script>
+<script>
+  // Navbar scroll shadow
+  window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Cart counter (works on every page)
+
+  const cartBadge = document.getElementById("cartCount");
+
+  document.querySelectorAll(".btn-primary").forEach(btn => {
+    btn.addEventListener("click", function () {
+      cartCount++;
+      cartBadge.textContent = cartCount;
+    });
+  });
+
+  // Dropdown hover on desktop
+  if (window.innerWidth > 992) {
+    document.querySelectorAll(".dropdown").forEach(drop => {
+      drop.addEventListener("mouseenter", function () {
+        this.classList.add("show");
+        this.querySelector(".dropdown-menu").classList.add("show");
+      });
+      drop.addEventListener("mouseleave", function () {
+        this.classList.remove("show");
+        this.querySelector(".dropdown-menu").classList.remove("show");
+      });
+    });
+  }
+</script>
+<script>
+  // Hover dropdown for desktop
+  document.querySelectorAll('.navbar .dropdown').forEach(function (dropdown) {
+    dropdown.addEventListener('mouseenter', function () {
+      if (window.innerWidth > 992) {
+        dropdown.classList.add('show');
+        dropdown.querySelector('.dropdown-menu').classList.add('show');
+      }
+    });
+
+    dropdown.addEventListener('mouseleave', function () {
+      if (window.innerWidth > 992) {
+        dropdown.classList.remove('show');
+        dropdown.querySelector('.dropdown-menu').classList.remove('show');
+      }
+    });
+  });
+</script>
+<button id="darkToggle" class="dark-toggle">
+  <span id="toggleIcon">🌙</span>
+</button>
+
+
+<script>
+const toggle = document.getElementById("darkToggle");
+const icon = document.getElementById("toggleIcon");
+
+toggle.addEventListener("click", () => {
+  document.body.classList.add("dark-transition");
+
+  setTimeout(() => {
+    document.body.classList.toggle("dark");
+
+    // Icon animation
+    if (document.body.classList.contains("dark")) {
+      icon.textContent = "🌞";
+      icon.style.transform = "rotate(360deg)";
+    } else {
+      icon.textContent = "🌙";
+      icon.style.transform = "rotate(-360deg)";
+    }
+
+    document.body.classList.remove("dark-transition");
+  }, 150);
+});
+</script>
+</body>
+</html>
