@@ -379,3 +379,367 @@ body.dark .navbar-nav .nav-link::before {
 body.dark .navbar-nav .nav-link:hover {
   color: #f87171 !important; /* soft red hover */
 }
+/* ================= GENERAL ================= */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+  padding-top: 90px; /* navbar fixed hai */
+}
+
+h1, h2 {
+  text-align: center;
+  margin: 25px 0 15px;
+  color: #333;
+}
+
+.cart-count {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* ================= GRID ================= */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 20px 40px;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+}
+
+/* ================= IMAGE FIX ================= */
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;   /* 🔥 image cut nahi hogi */
+  background: #f9fafb;   /* white/gray background */
+  padding: 10px;
+}
+
+/* ================= CONTENT ================= */
+.card-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+/* ================= BUTTONS ================= */
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.buttons .btn {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 30px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #b91c1c, #7f1d1d);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.buttons .btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.buttons .btn.active {
+  background: linear-gradient(135deg, #ff7f50, #ff4500);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 576px) {
+  .cards-container {
+    padding: 15px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+}
+
+/* ================= DARK MODE FIX ================= */
+body.dark {
+  background: #0b1220;
+  color: #e5e7eb;
+}
+
+body.dark .card {
+  background: #0a1020;
+  color: #ffffff;
+}
+
+body.dark .card-content p {
+  color: #d1d5db;
+}
+
+body.dark .card img {
+  background: #020617;
+}
+/* ================= GRID ================= */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+  padding: 30px 50px;
+}
+
+/* ================= CARD ================= */
+.card {
+  position: relative;
+  background: linear-gradient(145deg, #ffffff, #f1f1f1);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.12),
+    inset 0 0 0 1px rgba(255,255,255,0.6);
+  transition: all 0.45s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(185,28,28,0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.25);
+}
+
+/* ================= IMAGE ================= */
+.card img {
+  width: 100%;
+  height: 230px;
+  object-fit: contain;
+  padding: 15px;
+  background: radial-gradient(circle at top, #ffffff, #eaeaea);
+  transition: transform 0.45s ease;
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+
+/* ================= CONTENT ================= */
+.card-content {
+  padding: 18px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+/* ================= BUTTONS ================= */
+.buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.buttons .btn {
+  flex: 1;
+  padding: 11px 0;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #b91c1c, #7f1d1d);
+  box-shadow: 0 8px 20px rgba(185,28,28,0.35);
+  transition: all 0.35s ease;
+}
+
+.buttons .btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 14px 30px rgba(185,28,28,0.45);
+}
+
+.buttons .btn.active {
+  background: linear-gradient(135deg, #ff7f50, #ff4500);
+  box-shadow: 0 10px 25px rgba(255,69,0,0.5);
+}
+
+/* ================= BADGE EFFECT (OPTIONAL) ================= */
+.card::after {
+  content: "HOT";
+  position: absolute;
+  top: 14px;
+  right: -40px;
+  background: #b91c1c;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 50px;
+  transform: rotate(45deg);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* ================= DARK MODE ================= */
+body.dark .card {
+  background: linear-gradient(145deg, #0a1020, #020617);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+}
+
+body.dark .card-content p {
+  color: #d1d5db;
+}
+
+body.dark .card img {
+  background: radial-gradient(circle at top, #020617, #000);
+}
+/* ================= GRID FIX ================= */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 30px 40px;
+  align-items: stretch;
+}
+
+/* 🔥 HEADING FIX – FULL WIDTH */
+.cards-container h2 {
+  grid-column: 1 / -1;   /* ⬅️ THIS IS THE MAIN FIX */
+  text-align: center;
+  margin: 40px 0 20px;
+  font-weight: 600;
+  color: #111;
+}
+
+/* ================= CARD FIX ================= */
+.card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 45px rgba(0,0,0,0.25);
+}
+
+/* ================= IMAGE FIX ================= */
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;   /* image cut nahi hogi */
+  background: #f5f5f5;
+  padding: 12px;
+}
+
+/* ================= CONTENT FIX ================= */
+.card-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-content p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+  flex-grow: 1;
+}
+
+/* ================= BUTTON FIX ================= */
+.buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.buttons .btn {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 999px;
+  border: none;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(135deg, #b91c1c, #7f1d1d);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.buttons .btn:hover {
+  transform: scale(1.05);
+}
+
+.buttons .btn.active {
+  background: linear-gradient(135deg, #ff7f50, #ff4500);
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 576px) {
+  .cards-container {
+    padding: 20px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+}
+
+/* ================= DARK MODE ================= */
+body.dark .card {
+  background: #0a1020;
+}
+
+body.dark .card-content p {
+  color: #d1d5db;
+}
+
+body.dark .cards-container h2 {
+  color: #ffffff;
+}

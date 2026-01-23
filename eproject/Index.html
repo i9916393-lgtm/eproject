@@ -17,9 +17,9 @@
 <div id="pageLoader">
   <div class="loader"></div>
 </div>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vel, quod repellat cum maiores optio. Repellendus porro dolorem praesentium quod officiis beatae corporis neque! Quas assumenda aspernatur dolor facere quos.</p>
+
   <!-- ========================== NAVBAR ========================== -->
-  <h2>heading</h2>
+
     <div class="text-container" style="color: aliceblue;">
       <marquee>
         FOTOLAB was established in 1991 with the objective of providing sales service for
@@ -124,7 +124,12 @@
 <div id="searchCount" class="search-count"></div>
 
   <div id="searchResults" class="search-results"></div>
-  <button type="button" id="clearSearch" class="clear-btn">✕</button>
+  
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Search cameras...">
+  
+  <div class="search-results" id="searchResults"></div>
+</div>
 
 </form>
 
@@ -160,10 +165,7 @@
     </div>
 
   </section>
-  <!-- ==================================Video section========================================= -->
-
-
-<!-- ==============================================Video section ended here================================== -->
+ 
   <main>
        <div class="brands-section  reveal">
     <h1>Brands</h1>
@@ -237,6 +239,7 @@
     </div>
   </div>
 </section>
+<img src="images/banner image.jpg" alt="">
 <section class="deals reveal">
   <h2>Best Sellers</h2>
   <div class="cards">
@@ -270,166 +273,165 @@
   </div>
 </section>
 
-<section class="video-cards-section">
-  <h2>Video Tutorials & Reviews</h2>
+<!-- ================= VIDEO GUIDE SECTION ================= -->
+<section class="video-guide-section reveal">
+  <h2>Video Guide</h2>
+  <p class="video-subtitle">Watch our latest camera reviews and tutorials.</p>
 
-  <div class="video-tabs">
-    <button class="tab-btn active" data-cat="guide">Guide</button>
-    <button class="tab-btn" data-cat="reviews">Reviews</button>
-    <button class="tab-btn" data-cat="accessories">Accessories</button>
+  <div class="video-wrapper reveal">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/TcpQ4OAKVpQ?si=whI5GJbGPh0EIkwx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </div>
-
-  <div class="video-cards-grid" id="videoGrid"></div>
 </section>
 
-<!-- ✔️ ADD THIS MODAL HERE -->
+<section class="video-cards-section reveal">
+  <h2>Featured Camera Videos</h2>
+
+  <div class="video-tabs">
+    <button class="tab-btn active" data-category="all">All</button>
+    <button class="tab-btn" data-category="reviews">Reviews</button>
+    <button class="tab-btn" data-category="tutorials">Tutorials</button>
+  </div>
+
+  <div class="video-cards-grid">
+   <div class="video-card reveal" data-category="reviews">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/DFW-2YCOIM0?si=aFNNl36eHu45dnkO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"  allowfullscreen></iframe>
+ <span class="play-icon">▶</span>
+  <h4>Sony A7IV Review</h4>
+</div>
+
+
+    <div class="video-card reveal" data-category="tutorials">
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/yzqGTWbhcIw?si=EDu8WxVzbY2LF4z5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <span class="play-icon">▶</span>
+      <h4>Beginner Photography Tips</h4>
+    </div>
+
+    <div class="video-card reveal" data-category="reviews">
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/1shY1Dx5dj0?si=U2sTsf4Eudm_Yt7k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"  allowfullscreen></iframe>
+      <span class="play-icon">▶</span>
+      <h4>Canon R6 Mark II Review</h4>
+    </div>
+
+    <div class="video-card reveal" data-category="tutorials">
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/88pHrdF4reQ?si=XI1w3m2pGR3AOx55" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <span class="play-icon">▶</span>
+       <h4>Fujifilm X-T5 Review</h4>
+    </div>
+   
+  </div>
+</section>
+
 <div class="video-modal" id="videoModal">
   <div class="video-modal-content">
-    <span class="close-modal" onclick="closeVideo()">×</span>
-    <video src="https://www.youtube.com/watch?v=DUiPLfeoRHk&pp=ygUSY2FtZXJhIGd1aWRlIHZpZGVv"id="modalVideo" controls autoplay playsinline></video>
+    <span class="close-modal" id="closeModal">&times;</span>
+    <iframe id="modalVideo" src="" allowfullscreen></iframe>
   </div>
 </div>
 
-</section>
 
     <!-- =================== Catagory Section ================ -->
-    <section class="Catagory">
-      <div class="row g-4 mt-4 justify-content-center">
+<section class="Catagory">
+  <div class="card-container row g-4 mt-4 justify-content-center">
 
-        <div class="card reveal reveal-delay-1" style="width: 18rem;">
-          <img src="images/image (1).jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-              content.</p>
-          <button class="btn btn-primary" data-bs-toggle="tooltip" title="Add product to cart">
-  Add to cart
-</button>
-
-          </div>
-          <a class="nav-link position-relative" href="#">
-  <i class="bi bi-cart"></i>
-  <span id="cartCount" class="badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
-</a>
-
-        </div>
-        <div class="card reveal reveal-delay-2" style="width: 18rem;">
-          <img src="images/image (2).jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-              content.</p>
-            <button class="btn btn-primary" data-bs-toggle="tooltip" title="Add product to cart">
-  Add to cart
-</button>
-
-          </div>
-          <a class="nav-link position-relative" href="#">
-  <i class="bi bi-cart"></i>
-  <span id="cartCount" class="badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
-</a>
-
-        </div>
-        <div class="card reveal reveal-delay-3" style="width: 18rem;">
-          <img src="images/image (3).jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-              content.</p>
-           <button class="btn btn-primary" data-bs-toggle="tooltip" title="Add product to cart">
-  Add to cart
-</button>
-
-          </div>
-          <a class="nav-link position-relative" href="#">
-  <i class="bi bi-cart"></i>
-  <span id="cartCount" class="badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
-</a>
-
-        </div>
-        <div class="card reveal reveal-delay-4" style="width: 18rem;">
-          <img src="images/image (4).jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-              content.</p>
-           <button class="btn btn-primary" data-bs-toggle="tooltip" title="Add product to cart">
-  Add to cart
-</button>
-
-          </div>
-          <a class="nav-link position-relative" href="#">
-  <i class="bi bi-cart"></i>
-  <span id="cartCount" class="badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
-</a>
-
-        </div>
-        <div class="card reveal reveal-delay-5" style="width: 18rem;">
-          <img src="images/image (5).jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-              content.</p>
-            <button class="btn btn-primary" data-bs-toggle="tooltip" title="Add product to cart">
-  Add to cart
-</button>
-
-          </div>
-          <a class="nav-link position-relative" href="#">
-  <i class="bi bi-cart"></i>
-  <span id="cartCount" class="badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
-</a>
-
-        </div>
-        <div class="card reveal reveal-delay-6" style="width: 18rem;">
-          <img src="images/image (6).jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-              content.</p>
-            <button class="btn btn-primary" data-bs-toggle="tooltip" title="Add product to cart">
-  Add to cart
-</button>
-
-          </div>
-          <a class="nav-link position-relative" href="#">
-  <i class="bi bi-cart"></i>
-  <span id="cartCount" class="badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
-</a>
-
-        </div>
-        <div class="card reveal reveal-delay-7" style="width: 18rem;">
-          <img src="images/image (7).jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-              content.</p>
-            <a href="#" class="btn btn-primary">Add to card</a>
-          </div>
-          <a class="nav-link position-relative" href="#">
-  <i class="bi bi-cart"></i>
-  <span id="cartCount" class="badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
-</a>
-
-        </div>
-        <div class="card reveal reveal-delay-8" style="width: 18rem;">
-          <img src="images/image (8).jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s
-              content.</p>
-            <a href="#" class="btn btn-primary">Add to card</a>
-          </div>
-                 <a class="nav-link position-relative" href="#">
-  <i class="bi bi-cart"></i>
-  <span id="cartCount" class="badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
-</a>
-        </div>
- 
-
+    <!-- Card 1 -->
+    <div class="card reveal reveal-delay-1 col-12 col-sm-6 col-md-4 col-lg-3" style="width: 18rem;">
+      <img src="images/image (1).jpg" class="card-img-top fixed-img" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+        <button class="btn btn-primary add-cart-btn" data-bs-toggle="tooltip" title="Add product to cart">
+          Add to cart
+        </button>
       </div>
-     
-    </section>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card reveal reveal-delay-2 col-12 col-sm-6 col-md-4 col-lg-3" style="width: 18rem;">
+      <img src="images/image (2).jpg" class="card-img-top fixed-img" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+        <button class="btn btn-primary add-cart-btn" data-bs-toggle="tooltip" title="Add product to cart">
+          Add to cart
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card reveal reveal-delay-3 col-12 col-sm-6 col-md-4 col-lg-3" style="width: 18rem;">
+      <img src="images/image (3).jpg" class="card-img-top fixed-img" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+        <button class="btn btn-primary add-cart-btn" data-bs-toggle="tooltip" title="Add product to cart">
+          Add to cart
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card reveal reveal-delay-4 col-12 col-sm-6 col-md-4 col-lg-3" style="width: 18rem;">
+      <img src="images/image (4).jpg" class="card-img-top fixed-img" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+        <button class="btn btn-primary add-cart-btn" data-bs-toggle="tooltip" title="Add product to cart">
+          Add to cart
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card reveal reveal-delay-5 col-12 col-sm-6 col-md-4 col-lg-3" style="width: 18rem;">
+      <img src="images/image (5).jpg" class="card-img-top fixed-img" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+        <button class="btn btn-primary add-cart-btn" data-bs-toggle="tooltip" title="Add product to cart">
+          Add to cart
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="card reveal reveal-delay-6 col-12 col-sm-6 col-md-4 col-lg-3" style="width: 18rem;">
+      <img src="images/image (6).jpg" class="card-img-top fixed-img" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+        <button class="btn btn-primary add-cart-btn" data-bs-toggle="tooltip" title="Add product to cart">
+          Add to cart
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="card reveal reveal-delay-7 col-12 col-sm-6 col-md-4 col-lg-3" style="width: 18rem;">
+      <img src="images/image (7).jpg" class="card-img-top fixed-img" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+        <button class="btn btn-primary add-cart-btn" data-bs-toggle="tooltip" title="Add product to cart">
+          Add to cart
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="card reveal reveal-delay-8 col-12 col-sm-6 col-md-4 col-lg-3" style="width: 18rem;">
+      <img src="images/image (8).jpg" class="card-img-top fixed-img" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+        <button class="btn btn-primary add-cart-btn" data-bs-toggle="tooltip" title="Add product to cart">
+          Add to cart
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
     <section class="categories">
   <h2>Categories</h2>
 
@@ -463,6 +465,13 @@
       <button>View All</button>
     </div>
 
+  </div>
+</section>
+<section class="parallax-section reveal">
+  <div class="parallax-content">
+    
+    <h2>Capture Every Moment</h2>
+    <p>Professional cameras for creators</p>
   </div>
 </section>
 
@@ -519,56 +528,71 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
-  <script>
-    // Change navbar background on scroll
-    window.addEventListener('scroll', function () {
-      const navbar = document.querySelector('.navbar');
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    });
 
-
-  </script>
 <script>
-document.getElementById("contactBtn").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  alert("✅ Thank you! Your message has been sent successfully.");
-
-  document.querySelector("form").reset();
-});
-</script>
-<script>
-let cartCount = 0;
-document.querySelectorAll(".btn-primary").forEach(btn => {
-  btn.addEventListener("click", () => {
-    cartCount++;
-    document.getElementById("cartCount").textContent = cartCount;
+  // Change navbar background on scroll
+  window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
   });
-});
-
 </script>
+
 <script>
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-tooltipTriggerList.map(el => new bootstrap.Tooltip(el));
+  // Contact button (if you have contactBtn)
+  const contactBtn = document.getElementById("contactBtn");
+  if (contactBtn) {
+    contactBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      alert("✅ Thank you! Your message has been sent successfully.");
+      document.querySelector("form").reset();
+    });
+  }
+</script>
+
+
+
+<script>
+  // Tooltips
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+  tooltipTriggerList.map(el => new bootstrap.Tooltip(el));
 </script>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
 $(document).ready(function () {
 
-  /* ===== CART SYSTEM ===== */
-  let cartCount = 0;
+  // ===== CART SYSTEM =====
+ let cartCount = 0;
+const cartIcon = document.querySelector(".bi-cart");
 
-  $(".btn-primary").on("click", function () {
+document.querySelectorAll(".btn-primary").forEach(btn => {
+  btn.addEventListener("click", e => {
     cartCount++;
-    $("#cartCount").text(cartCount).fadeOut(100).fadeIn(100);
-  });
+    document.getElementById("cartCount").textContent = cartCount;
+    cartIcon.classList.add("cart-bump");
+    setTimeout(() => cartIcon.classList.remove("cart-bump"), 300);
 
-  /* ===== NAVBAR SCROLL EFFECT ===== */
+    const dot = document.createElement("div");
+    dot.className = "cart-fly";
+    document.body.appendChild(dot);
+
+    const rect = e.target.getBoundingClientRect();
+    dot.style.left = rect.left + "px";
+    dot.style.top = rect.top + "px";
+
+    const cartRect = cartIcon.getBoundingClientRect();
+    dot.style.transform = `translate(${cartRect.left - rect.left}px, ${cartRect.top - rect.top}px)`;
+
+    setTimeout(() => dot.remove(), 800);
+  });
+});
+
+
+  // ===== NAVBAR SCROLL EFFECT =====
   $(window).on("scroll", function () {
     if ($(this).scrollTop() > 60) {
       $(".navbar").addClass("shadow-lg bg-white");
@@ -577,7 +601,7 @@ $(document).ready(function () {
     }
   });
 
-  /* ===== MOBILE DROPDOWN HOVER FIX ===== */
+  // ===== MOBILE DROPDOWN HOVER FIX =====
   if ($(window).width() > 992) {
     $(".dropdown").hover(
       function () {
@@ -589,7 +613,7 @@ $(document).ready(function () {
     );
   }
 
-  /* ===== SMOOTH SCROLL ===== */
+  // ===== SMOOTH SCROLL =====
   $("a[href^='#']").on("click", function (e) {
     e.preventDefault();
     $("html, body").animate({
@@ -599,654 +623,131 @@ $(document).ready(function () {
 
 });
 </script>
-<script>
-const reveals = document.querySelectorAll(".reveal");
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-    }
+<script>
+  // Reveal animations
+  const reveals = document.querySelectorAll(".reveal");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+<script>
+  // Page loader
+  window.addEventListener("load", () => {
+    document.getElementById("pageLoader").style.display = "none";
   });
-}, { threshold: 0.15 });
-
-reveals.forEach(el => observer.observe(el));
 </script>
 
-
-<script>
-window.addEventListener("load", () => {
-  document.getElementById("pageLoader").style.display = "none";
-});
-</script>
 <button id="darkToggle" class="dark-toggle">
   <span id="toggleIcon">🌙</span>
 </button>
 
-<button class="btn buy" onclick="openVideo('V7z7BAZdt2M')">
-  Watch Review
-</button>
-
-
 <script>
-const toggle = document.getElementById("darkToggle");
-const icon = document.getElementById("toggleIcon");
+  // Dark mode toggle
+  const toggle = document.getElementById("darkToggle");
+  const icon = document.getElementById("toggleIcon");
 
-toggle.addEventListener("click", () => {
-  document.body.classList.add("dark-transition");
+  toggle.addEventListener("click", () => {
+    document.body.classList.add("dark-transition");
+    setTimeout(() => {
+      document.body.classList.toggle("dark");
 
-  setTimeout(() => {
-    document.body.classList.toggle("dark");
-
-    // Icon animation
-    if (document.body.classList.contains("dark")) {
-      icon.textContent = "🌞";
-      icon.style.transform = "rotate(360deg)";
-    } else {
-      icon.textContent = "🌙";
-      icon.style.transform = "rotate(-360deg)";
-    }
-
-    document.body.classList.remove("dark-transition");
-  }, 150);
-});
+      if (document.body.classList.contains("dark")) {
+        icon.textContent = "🌞";
+        icon.style.transform = "rotate(360deg)";
+      } else {
+        icon.textContent = "🌙";
+        icon.style.transform = "rotate(-360deg)";
+      }
+      document.body.classList.remove("dark-transition");
+    }, 150);
+  });
 </script>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+  // ====== Video Tabs + Modal ======
+  const tabs = document.querySelectorAll(".tab-btn");
+  const cards = document.querySelectorAll(".video-card");
 
-  // ======= MODAL =======
-  function openVideo(src) {
-  const modal = document.getElementById("videoModal");
-  const video = document.getElementById("modalVideo");
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
 
-  video.src = src;
-  modal.style.display = "flex";
-  video.play();
-}
-
-function closeVideo() {
-  const modal = document.getElementById("videoModal");
-  const video = document.getElementById("modalVideo");
-
-  video.pause();
-  video.src = "";
-  modal.style.display = "none";
-}
-
-  // ======= VIDEO DATA =======
-const videoData = {
-  guide: [
-    {
-      src: "videos/camera-guide.mp4",
-      title: "How to Choose Your First Camera",
-      desc: "Beginner camera buying guide."
-    }
-  ],
-  reviews: [
-    {
-      src: "videos/dslr-vs-mirrorless.mp4",
-      title: "DSLR vs Mirrorless",
-      desc: "Which one is best for you?"
-    }
-  ],
-  accessories: [
-    {
-      src: "videos/accessories.mp4",
-      title: "Must-Have Camera Accessories",
-      desc: "Best accessories for beginners."
-    }
-  ]
-};
-
-
-  // ======= SCROLL ANIMATION =======
-  let videoObserver;
-
-  function initVideoObserver() {
-    if (videoObserver) videoObserver.disconnect();
-
-    videoObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("video-show");
+      const category = tab.dataset.category;
+      cards.forEach(card => {
+        if (category === "all" || card.dataset.category === category) {
+          card.classList.remove("hide-card");
+        } else {
+          card.classList.add("hide-card");
         }
       });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll(".video-card").forEach(v => videoObserver.observe(v));
-  }
-
-  // ======= LOAD VIDEOS =======
-function loadVideos(category) {
-  videoGrid.innerHTML = "";
-
-  videoData[category].forEach(video => {
-    const card = document.createElement("div");
-    card.className = "video-card";
-    card.innerHTML = `
-      <div class="play-icon">▶</div>
-      <h4>${video.title}</h4>
-      <p>${video.desc}</p>
-    `;
-    card.onclick = () => openVideo(video.src);
-    videoGrid.appendChild(card);
-  });
-}
-
-  // ======= TAB BUTTONS =======
-  document.querySelectorAll(".tab-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      loadVideos(btn.dataset.cat);
     });
   });
 
-  loadVideos("guide");
-
-});
-</script>
-<script>
-const searchInput = document.getElementById("siteSearch");
-const resultsBox = document.getElementById("searchResults");
-let debounce;
-
-searchInput.addEventListener("input", function () {
-  clearTimeout(debounce);
-  debounce = setTimeout(() => runSearch(this.value), 300);
-});
-
-function runSearch(query) {
-  query = query.toLowerCase().trim();
-
-  document.querySelectorAll(".Catagory .card").forEach(card => {
-    const titleEl = card.querySelector(".card-title");
-    const match = titleEl.innerText.toLowerCase().includes(query);
-    card.style.display = match ? "block" : "none";
-    if (match && query) highlight(titleEl, query);
-  });
+  // Modal
+  const modal = document.getElementById("videoModal");
+  const modalVideo = document.getElementById("modalVideo");
 
   document.querySelectorAll(".video-card").forEach(card => {
-    const titleEl = card.querySelector("h4");
-    const match = titleEl.innerText.toLowerCase().includes(query);
-    card.style.display = match ? "block" : "none";
-    if (match && query) highlight(titleEl, query);
+    card.addEventListener("click", () => {
+      const iframe = card.querySelector("iframe");
+      const baseSrc = iframe.src;
+      const separator = baseSrc.includes("?") ? "&" : "?";
+      modalVideo.src = baseSrc + separator + "autoplay=1";
+      modal.style.display = "flex";
+    });
   });
-}
 
-function highlight(el, text) {
-  const regex = new RegExp(`(${text})`, "gi");
-  el.innerHTML = el.innerText.replace(regex, "<span class='highlight'>$1</span>");
-}
-if (!query) {
-  document.querySelectorAll(".Catagory .card, .video-card").forEach(el => {
-    el.style.display = "block";
+  document.getElementById("closeModal").addEventListener("click", () => {
+    modal.style.display = "none";
+    modalVideo.src = "";
   });
-  return;
-}
 
-
-
-
-// Mobile keyboard optimization
-searchInput.setAttribute("inputmode", "search");
-searchInput.setAttribute("enterkeyhint", "search");
-
-
-// Cache product cards once
-const productCards = Array.from(document.querySelectorAll(".Catagory .card"));
-
-searchInput.addEventListener("input", function () {
-  clearTimeout(debounce);
-  debounce = setTimeout(() => runSearch(this.value), 250);
-});
-
-// Hide suggestions on blur (mobile friendly)
-searchInput.addEventListener("blur", () => {
-  setTimeout(() => resultsBox.style.display = "none", 150);
-});
-
-function runSearch(query) {
-  query = query.toLowerCase().trim();
-  resultsBox.innerHTML = "";
-  let suggestions = [];
-
-  // 🔹 PRODUCT SEARCH
-  productCards.forEach(card => {
-    const titleEl = card.querySelector(".card-title");
-    const text = titleEl.innerText;
-    const match = text.toLowerCase().includes(query);
-
-    card.style.display = !query || match ? "block" : "none";
-
-    if (match && query) {
-      highlight(titleEl, query);
-      suggestions.push(text);
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      modalVideo.src = "";
     }
   });
+  const products = [
+  "Sony A7IV",
+  "Canon R6 Mark II",
+  "Nikon Z6 II",
+  "Fujifilm X-T5",
+  "Sony FX3"
+];
 
-  // 🔹 VIDEO SEARCH (ONLY ACTIVE TAB)
-  const activeTab = document.querySelector(".tab-btn.active");
-  if (activeTab) {
-    document.querySelectorAll(".video-card").forEach(card => {
-      const titleEl = card.querySelector("h4");
-      const text = titleEl.innerText;
-      const match = text.toLowerCase().includes(query);
+const input = document.getElementById("searchInput");
+const results = document.getElementById("searchResults");
 
-      card.style.display = !query || match ? "block" : "none";
+input.addEventListener("input", () => {
+  const value = input.value.toLowerCase();
+  results.innerHTML = "";
 
-      if (match && query) {
-        highlight(titleEl, query);
-        suggestions.push(text);
-      }
-    });
+  if (!value) {
+    results.style.display = "none";
+    return;
   }
 
-  // 🔹 SHOW SUGGESTIONS
-  if (query && suggestions.length) {
-    resultsBox.style.display = "block";
-    suggestions.slice(0, 6).forEach(item => {
+  products.filter(p => p.toLowerCase().includes(value))
+    .forEach(item => {
       const div = document.createElement("div");
       div.className = "item";
-      div.innerText = item;
-
-      div.onclick = () => {
-        searchInput.value = item;
-        runSearch(item);
-        resultsBox.style.display = "none";
-        searchInput.blur(); // hides mobile keyboard
-      };
-
-      resultsBox.appendChild(div);
-    });
-  } else {
-    resultsBox.style.display = "none";
-  }
-}
-
-// Highlight helper
-function highlight(el, text) {
-  const regex = new RegExp(`(${text})`, "gi");
-  el.innerHTML = el.innerText.replace(regex, "<span class='highlight'>$1</span>");
-}
-
-
-</script>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  const searchInput = document.getElementById("siteSearch");
-  const resultsBox = document.getElementById("searchResults");
-
-  // 1️⃣ GET ALL ITEMS
-  const productCards = document.querySelectorAll(".Catagory .card");
-  const videoCards = document.querySelectorAll(".video-card");
-
-  // 2️⃣ HELPER FUNCTION: HIGHLIGHT TEXT
-  function highlightText(element, query) {
-    const regex = new RegExp(`(${query})`, "gi");
-    element.innerHTML = element.innerText.replace(regex, "<span class='highlight'>$1</span>");
-  }
-
-  // 3️⃣ SEARCH FUNCTION
-  function performSearch(query) {
-    query = query.trim().toLowerCase();
-    let count = 0;
-
-    // SEARCH PRODUCTS
-    productCards.forEach(card => {
-      const title = card.querySelector(".card-title").innerText.toLowerCase();
-      const match = title.includes(query);
-
-      card.style.display = match ? "block" : "none";
-
-      if (match) {
-        count++;
-        highlightText(card.querySelector(".card-title"), query);
-      }
+      div.textContent = item;
+      results.appendChild(div);
     });
 
-    // SEARCH VIDEOS
-    videoCards.forEach(card => {
-      const title = card.querySelector("h4").innerText.toLowerCase();
-      const match = title.includes(query);
-
-      card.style.display = match ? "block" : "none";
-
-      if (match) {
-        count++;
-        highlightText(card.querySelector("h4"), query);
-      }
-    });
-
-    return count;
-  }
-
-  // 4️⃣ SEARCH SUGGESTIONS
-  function showSuggestions(query) {
-    resultsBox.innerHTML = "";
-    resultsBox.style.display = "none";
-
-    if (!query) return;
-
-    const suggestions = [];
-
-    productCards.forEach(card => {
-      const title = card.querySelector(".card-title").innerText;
-      if (title.toLowerCase().includes(query.toLowerCase())) {
-        suggestions.push(title);
-      }
-    });
-
-    videoCards.forEach(card => {
-      const title = card.querySelector("h4").innerText;
-      if (title.toLowerCase().includes(query.toLowerCase())) {
-        suggestions.push(title);
-      }
-    });
-
-    if (suggestions.length > 0) {
-      resultsBox.style.display = "block";
-      suggestions.slice(0, 5).forEach(item => {
-        const div = document.createElement("div");
-        div.className = "item";
-        div.innerText = item;
-        div.addEventListener("click", () => {
-          searchInput.value = item;
-          performSearch(item);
-          resultsBox.style.display = "none";
-        });
-        resultsBox.appendChild(div);
-      });
-    }
-  }
-
-  // 5️⃣ EVENT LISTENER
-  searchInput.addEventListener("input", function () {
-    const query = this.value;
-
-    // SHOW SUGGESTIONS
-    showSuggestions(query);
-
-    // SEARCH ONLY WITHIN CURRENT CATEGORY
-    const activeTab = document.querySelector(".tab-btn.active");
-    const activeCat = activeTab ? activeTab.dataset.cat : null;
-
-    if (activeCat) {
-      // FILTER videos only (if active tab is video category)
-      document.querySelectorAll(".video-card").forEach(card => {
-        const title = card.querySelector("h4").innerText.toLowerCase();
-        card.style.display = title.includes(query.toLowerCase()) ? "block" : "none";
-      });
-
-      // If you want search to ONLY work inside videos,
-      // comment out the product section above.
-    }
-
-    // SEARCH BOTH (if you want full search)
-    const count = performSearch(query);
-
-    // SHOW COUNT
-    console.log("Search results: " + count);
-  });
-
-});
-const clearBtn = document.getElementById("clearSearch");
-
-searchInput.addEventListener("input", () => {
-  clearBtn.style.display = searchInput.value ? "inline" : "none";
-});
-
-clearBtn.addEventListener("click", () => {
-  searchInput.value = "";
-  runSearch("");
-  clearBtn.style.display = "none";
-  searchInput.focus();
+  results.style.display = "block";
 });
 
 </script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  const searchInput = document.getElementById("siteSearch");
-  const resultsBox = document.getElementById("searchResults");
-
-  // Prevent form submission (no page reload)
-  const searchForm = document.getElementById("searchForm");
-  searchForm.addEventListener("submit", function(e){
-    e.preventDefault();
-  });
-
-  // Get all cards
-  const productCards = document.querySelectorAll(".Catagory .card");
-  const videoCards = document.querySelectorAll(".video-card");
-
-  function highlightText(element, query) {
-    const regex = new RegExp(`(${query})`, "gi");
-    element.innerHTML = element.innerText.replace(regex, "<span class='highlight'>$1</span>");
-  }
-
-  function performSearch(query) {
-    query = query.trim().toLowerCase();
-    let count = 0;
-
-    productCards.forEach(card => {
-      const title = card.querySelector(".card-title").innerText.toLowerCase();
-      const match = title.includes(query);
-
-      card.style.display = match ? "block" : "none";
-
-      if (match) {
-        count++;
-        highlightText(card.querySelector(".card-title"), query);
-      }
-    });
-
-    videoCards.forEach(card => {
-      const title = card.querySelector("h4").innerText.toLowerCase();
-      const match = title.includes(query);
-
-      card.style.display = match ? "block" : "none";
-
-      if (match) {
-        count++;
-        highlightText(card.querySelector("h4"), query);
-      }
-    });
-
-    return count;
-  }
-
-  function showSuggestions(query) {
-    resultsBox.innerHTML = "";
-    resultsBox.style.display = "none";
-
-    if (!query) return;
-
-    const suggestions = [];
-
-    productCards.forEach(card => {
-      const title = card.querySelector(".card-title").innerText;
-      if (title.toLowerCase().includes(query.toLowerCase())) {
-        suggestions.push(title);
-      }
-    });
-
-    videoCards.forEach(card => {
-      const title = card.querySelector("h4").innerText;
-      if (title.toLowerCase().includes(query.toLowerCase())) {
-        suggestions.push(title);
-      }
-    });
-
-    if (suggestions.length > 0) {
-      resultsBox.style.display = "block";
-      suggestions.slice(0, 5).forEach(item => {
-        const div = document.createElement("div");
-        div.className = "item";
-        div.innerText = item;
-        div.addEventListener("click", () => {
-          searchInput.value = item;
-          performSearch(item);
-          resultsBox.style.display = "none";
-        });
-        resultsBox.appendChild(div);
-      });
-    }
-  }
-
-  searchInput.addEventListener("input", function () {
-    const query = this.value;
-    showSuggestions(query);
-    performSearch(query);
-  });
-
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  /* ================= VIDEO MODAL ================= */
-  const modal = document.getElementById("videoModal");
-  const iframe = document.getElementById("modalVideo");
-
-  window.openVideo = function (videoId) {
-    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-    modal.style.display = "flex";
-  };
-
-  window.closeVideo = function () {
-    iframe.src = "";
-    modal.style.display = "none";
-  };
-
-  /* ================= VIDEO DATA ================= */
-  const videoData = {
-    guide: [
-      { id: "V7z7BAZdt2M", title: "How to Choose Your First Camera", desc: "Beginner camera buying guide." }
-    ],
-    reviews: [
-      { id: "s0jK9I8F5To", title: "DSLR vs Mirrorless", desc: "Which one is best for you?" },
-      { id: "kE9Pp8g5a4M", title: "Best Cameras for Beginners", desc: "Top beginner cameras." }
-    ],
-    accessories: [
-      { id: "FZ6X5y8k1YQ", title: "Must-Have Camera Accessories", desc: "Best accessories for beginners." }
-    ]
-  };
-
-  const videoGrid = document.getElementById("videoGrid");
-
-  function loadVideos(category) {
-    videoGrid.innerHTML = "";
-
-    videoData[category].forEach(video => {
-      const card = document.createElement("div");
-      card.className = "video-card";
-      card.innerHTML = `
-        <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg">
-        <div class="play-icon"><i class="bi bi-play-fill"></i></div>
-        <h4>${video.title}</h4>
-        <p>${video.desc}</p>
-      `;
-      card.onclick = () => openVideo(video.id);
-      videoGrid.appendChild(card);
-    });
-  }
-
-  /* ================= TAB SWITCH ================= */
-  document.querySelectorAll(".tab-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      loadVideos(btn.dataset.cat);
-    });
-  });
-
-  loadVideos("guide");
-
-  /* ================= SEARCH SYSTEM ================= */
-  let results = 0;
-if (match && query) results++;
-
-  const searchInput = document.getElementById("siteSearch");
-  const resultsBox = document.getElementById("searchResults");
-  const productCards = document.querySelectorAll(".Catagory .card");
-
-  function highlight(el, text) {
-    const regex = new RegExp(`(${text})`, "gi");
-    el.innerHTML = el.innerText.replace(regex, "<span class='highlight'>$1</span>");
-  }
-
-  function performSearch(query) {
-    query = query.toLowerCase().trim();
-
-    productCards.forEach(card => {
-      const title = card.querySelector(".card-title").innerText.toLowerCase();
-      card.style.display = title.includes(query) ? "block" : "none";
-      if (query) highlight(card.querySelector(".card-title"), query);
-    });
-
-    document.querySelectorAll(".video-card").forEach(card => {
-      const title = card.querySelector("h4").innerText.toLowerCase();
-      card.style.display = title.includes(query) ? "block" : "none";
-      if (query) highlight(card.querySelector("h4"), query);
-    });
-  }
-
-  searchInput.addEventListener("input", function () {
-    performSearch(this.value);
-  });
-
-});
-document.getElementById("searchCount").textContent =
-  query ? `${results} results found` : "";
-function fuzzyMatch(text, query) {
-  let t = text.toLowerCase();
-  let q = query.toLowerCase();
-  let ti = 0;
-
-  for (let qi = 0; qi < q.length; qi++) {
-    ti = t.indexOf(q[qi], ti);
-    if (ti === -1) return false;
-    ti++;
-  }
-  return true;
-}
-const match =
-  text.toLowerCase().includes(query) ||
-  fuzzyMatch(text, query);
-localStorage.setItem("lastSearch", searchInput.value);
-const saved = localStorage.getItem("lastSearch");
-if (saved) {
-  searchInput.value = saved;
-  runSearch(saved);
-}
-self.onmessage = e => {
-  const { items, query } = e.data;
-  const q = query.toLowerCase();
-
-  const results = items.filter(item =>
-    item.toLowerCase().includes(q)
-  );
-
-  self.postMessage(results);
-};
-const worker = new Worker("searchWorker.js");
-
-worker.onmessage = e => {
-  console.log("Worker results:", e.data);
-};
-
-worker.postMessage({
-  items: productCards.map(c => c.innerText),
-  query
-});
-
-</script>
-
 </body>
-
 </html>
