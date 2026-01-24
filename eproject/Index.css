@@ -862,9 +862,10 @@ body.dark .video-card {
 
 /* ================= IFRAME LOADING ================= */
 iframe {
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.8s ease;
 }
+
 
 iframe.loaded {
   opacity: 1;
@@ -1007,4 +1008,13 @@ video {
 
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+/* Fix iframe visibility */
+iframe {
+  opacity: 1 !important;
+}
+
+/* Hide cards for filtering */
+.hide-card {
+  display: none !important;
 }
