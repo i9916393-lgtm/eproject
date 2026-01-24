@@ -123,7 +123,12 @@
 <div id="searchCount" class="search-count"></div>
 
   <div id="searchResults" class="search-results"></div>
-  <button type="button" id="clearSearch" class="clear-btn">✕</button>
+  
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Search cameras...">
+  
+  <div class="search-results" id="searchResults"></div>
+</div>
 
 </form>
 
@@ -461,6 +466,13 @@
 
   </div>
 </section>
+<section class="parallax-section reveal">
+  <div class="parallax-content">
+    
+    <h2>Capture Every Moment</h2>
+    <p>Professional cameras for creators</p>
+  </div>
+</section>
 
    <!-- Footer -->
 <footer class="footer">
@@ -540,16 +552,7 @@
   }
 </script>
 
-<script>
-  // CART SYSTEM
-  let cartCount = 0;
-  document.querySelectorAll(".btn-primary").forEach(btn => {
-    btn.addEventListener("click", () => {
-      cartCount++;
-      document.getElementById("cartCount").textContent = cartCount;
-    });
-  });
-</script>
+
 
 <script>
   // Tooltips
@@ -562,11 +565,31 @@
 $(document).ready(function () {
 
   // ===== CART SYSTEM =====
-  let cartCount = 0;
-  $(".btn-primary").on("click", function () {
+ let cartCount = 0;
+const cartIcon = document.querySelector(".bi-cart");
+
+document.querySelectorAll(".btn-primary").forEach(btn => {
+  btn.addEventListener("click", e => {
     cartCount++;
-    $("#cartCount").text(cartCount).fadeOut(100).fadeIn(100);
+    document.getElementById("cartCount").textContent = cartCount;
+    cartIcon.classList.add("cart-bump");
+    setTimeout(() => cartIcon.classList.remove("cart-bump"), 300);
+
+    const dot = document.createElement("div");
+    dot.className = "cart-fly";
+    document.body.appendChild(dot);
+
+    const rect = e.target.getBoundingClientRect();
+    dot.style.left = rect.left + "px";
+    dot.style.top = rect.top + "px";
+
+    const cartRect = cartIcon.getBoundingClientRect();
+    dot.style.transform = `translate(${cartRect.left - rect.left}px, ${cartRect.top - rect.top}px)`;
+
+    setTimeout(() => dot.remove(), 800);
   });
+});
+
 
   // ===== NAVBAR SCROLL EFFECT =====
   $(window).on("scroll", function () {
@@ -693,11 +716,37 @@ $(document).ready(function () {
       modalVideo.src = "";
     }
   });
+  const products = [
+  "Sony A7IV",
+  "Canon R6 Mark II",
+  "Nikon Z6 II",
+  "Fujifilm X-T5",
+  "Sony FX3"
+];
+
+const input = document.getElementById("searchInput");
+const results = document.getElementById("searchResults");
+
+input.addEventListener("input", () => {
+  const value = input.value.toLowerCase();
+  results.innerHTML = "";
+
+  if (!value) {
+    results.style.display = "none";
+    return;
+  }
+
+  products.filter(p => p.toLowerCase().includes(value))
+    .forEach(item => {
+      const div = document.createElement("div");
+      div.className = "item";
+      div.textContent = item;
+      results.appendChild(div);
+    });
+
+  results.style.display = "block";
+});
+
 </script>
-
-
-
-
 </body>
-
 </html>
