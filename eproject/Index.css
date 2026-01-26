@@ -1119,7 +1119,7 @@ body.dark .video-card {
 }
 .parallax-section {
   height: 70vh;
-  background: url("images/banner\ image.jpg") center/cover fixed;
+  background-color: #0a1020;
   display: flex;
   align-items: center;
   justify-content: center;
