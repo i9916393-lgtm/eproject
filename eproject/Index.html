@@ -118,18 +118,11 @@
 <form class="d-flex" id="searchForm">
   <input id="siteSearch" class="form-control me-2" type="search" placeholder="Search products & videos" aria-label="Search">
 
-  <button id="searchBtn" type="button">
-    <i class="bi bi-search"></i>
-  </button>
-<div id="searchCount" class="search-count"></div>
+  <button id="searchBtn" type="button" class="btn btn-dark">
+  <i class="bi bi-search"></i>
+</button>
 
-  <div id="searchResults" class="search-results"></div>
-  
-<div class="search-box">
-  <input type="text" id="searchInput" placeholder="Search cameras...">
-  
-  <div class="search-results" id="searchResults"></div>
-</div>
+
 
 </form>
 
@@ -349,6 +342,7 @@
         <button class="btn btn-primary add-cart-btn" data-bs-toggle="tooltip" title="Add product to cart">
           Add to cart
         </button>
+        <button class="wishlistBtn"><i class="bi bi-heart"></i></button>
       </div>
     </div>
 
@@ -670,6 +664,9 @@ document.querySelectorAll(".btn-primary").forEach(btn => {
       document.body.classList.remove("dark-transition");
     }, 150);
   });
+  
+
+
 </script>
 
 <script>
@@ -750,5 +747,166 @@ input.addEventListener("input", () => {
 });
 
 </script>
+<script>
+  // ========================= QUICK VIEW & STICKY CART =========================
+
+const quickViewModal = document.getElementById("quickViewModal");
+const closeQuick = document.getElementById("closeQuick");
+const quickImg = document.getElementById("quickImg");
+const quickTitle = document.getElementById("quickTitle");
+const quickDesc = document.getElementById("quickDesc");
+const quickPrice = document.getElementById("quickPrice");
+const quickAdd = document.getElementById("quickAdd");
+
+const stickyBar = document.getElementById("stickyCartBar");
+const stickyImg = document.getElementById("stickyImg");
+const stickyName = document.getElementById("stickyName");
+const stickyPrice = document.getElementById("stickyPrice");
+const stickyAdd = document.getElementById("stickyAdd");
+
+let currentProduct = null;
+
+// Quick View
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("click", (e) => {
+    // ignore button click
+    if (e.target.tagName === "BUTTON") return;
+
+    const img = card.querySelector("img").src;
+    const title = card.querySelector("h5").innerText;
+    const price = card.querySelector("p").innerText;
+
+    quickImg.src = img;
+    quickTitle.innerText = title;
+    quickDesc.innerText = "This is a premium product with best quality and fast delivery. Buy now and get exclusive offer!";
+    quickPrice.innerText = price;
+
+    currentProduct = { img, title, price };
+
+    quickViewModal.style.display = "flex";
+  });
+});
+
+closeQuick.addEventListener("click", () => {
+  quickViewModal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === quickViewModal) {
+    quickViewModal.style.display = "none";
+  }
+});
+
+// Sticky Cart Bar show on scroll
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 600) {
+    stickyBar.classList.add("show");
+  } else {
+    stickyBar.classList.remove("show");
+  }
+});
+
+// Add to cart from sticky bar
+stickyAdd.addEventListener("click", () => {
+  if (!currentProduct) return;
+
+  cartCount++;
+  document.getElementById("cartCount").textContent = cartCount;
+});
+
+// Add to cart from quick view
+quickAdd.addEventListener("click", () => {
+  if (!currentProduct) return;
+
+  cartCount++;
+  document.getElementById("cartCount").textContent = cartCount;
+  quickViewModal.style.display = "none";
+});
+
+// Update sticky bar product based on scroll
+const cards = document.querySelectorAll(".card");
+const options = { threshold: 0.6 };
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const card = entry.target;
+      const img = card.querySelector("img").src;
+      const title = card.querySelector("h5").innerText;
+      const price = card.querySelector("p").innerText;
+
+      stickyImg.src = img;
+      stickyName.innerText = title;
+      stickyPrice.innerText = price;
+
+      currentProduct = { img, title, price };
+    }
+  });
+}, options);
+
+cards.forEach(card => observer.observe(card));
+// ========================= WISHLIST FEATURE =========================
+
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+const wishCount = document.getElementById("wishCount");
+
+function updateWishCount() {
+  wishCount.innerText = wishlist.length;
+}
+
+updateWishCount();
+
+// Set active hearts on load
+document.querySelectorAll(".card").forEach(card => {
+  const title = card.querySelector("h5").innerText;
+  const heart = card.querySelector(".wishlistBtn");
+
+  if (wishlist.includes(title)) {
+    heart.classList.add("active");
+  }
+
+  heart.addEventListener("click", (e) => {
+    e.stopPropagation(); // avoid quick view trigger
+
+    if (wishlist.includes(title)) {
+      wishlist = wishlist.filter(item => item !== title);
+      heart.classList.remove("active");
+    } else {
+      wishlist.push(title);
+      heart.classList.add("active");
+    }
+
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    updateWishCount();
+  });
+});
+
+</script>
+<div id="stickyCartBar">
+  <div class="cart-info">
+    <img id="stickyImg" src="images/images.jpg" alt="Product">
+    <div class="txt">
+      <h4 id="stickyName">Product Name</h4>
+      <p id="stickyPrice">$999</p>
+    </div>
+  </div>
+  <button id="stickyAdd" class="btn">Add to Cart</button>
+</div>
+<div id="quickViewModal">
+  <div class="modal-content">
+    <span class="close-quick" id="closeQuick">&times;</span>
+    <div class="modal-body">
+      <img id="quickImg" src="" alt="Product">
+      <div>
+        <h2 id="quickTitle">Product Title</h2>
+        <p id="quickDesc">Product description goes here.</p>
+        <h3 id="quickPrice">$999</h3>
+        <button id="quickAdd" class="btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

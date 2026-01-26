@@ -743,3 +743,141 @@ body.dark .card-content p {
 body.dark .cards-container h2 {
   color: #ffffff;
 }
+/* ================= DARK MODE (Cyber Look) ================= */
+body.dark {
+  background: #070a12;
+  color: #e5e7eb;
+}
+
+body.dark .navbar {
+  background: rgba(10,16,32,0.85) !important;
+  border-bottom: 1px solid rgba(34,211,238,0.25);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+body.dark .navbar-brand img {
+  border-color: #22d3ee !important;
+  box-shadow: 0 0 25px rgba(34,211,238,0.55);
+}
+
+body.dark .navbar-nav .nav-link,
+body.dark .navbar-nav .nav-link.active {
+  color: rgba(229,231,235,0.9) !important;
+}
+
+body.dark .navbar-nav .nav-link:hover {
+  color: #22d3ee !important;
+}
+
+body.dark .navbar-nav .nav-link::before {
+  background-color: #22d3ee !important;
+}
+
+body.dark .dropdown-menu {
+  background: rgba(10,16,32,0.92) !important;
+  border: 1px solid rgba(34,211,238,0.25);
+  backdrop-filter: blur(10px);
+}
+
+body.dark .dropdown-item {
+  color: #fff !important;
+}
+
+body.dark .dropdown-item:hover {
+  background: rgba(34,211,238,0.15) !important;
+}
+
+body.dark .card,
+body.dark .category-card,
+body.dark .video-card,
+body.dark .deals,
+body.dark .Catagory {
+  background: rgba(255,255,255,0.06) !important;
+  border-color: rgba(34,211,238,0.22) !important;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6) !important;
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark p,
+body.dark a {
+  color: #e5e7eb !important;
+}
+
+body.dark .video-card {
+  background: rgba(255,255,255,0.05) !important;
+  border-color: rgba(34,211,238,0.25) !important;
+}
+
+body.dark .video-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(34,211,238,0.25) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+body.dark .video-card:hover::after {
+  opacity: 1;
+}
+
+body.dark .play-icon {
+  color: #fff;
+}
+
+body.dark .video-wrapper iframe,
+body.dark .video-card iframe {
+  box-shadow: 0 25px 60px rgba(0,0,0,0.8) !important;
+}
+
+body.dark .video-modal {
+  background: rgba(0,0,0,0.85);
+}
+
+body.dark .video-modal iframe {
+  border-radius: 18px;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.8);
+}
+
+body.dark .footer {
+  background: #070a12 !important;
+  border-top: 1px solid rgba(34,211,238,0.25);
+}
+
+body.dark .footer a,
+body.dark .footer p {
+  color: rgba(229,231,235,0.8) !important;
+}
+
+body.dark .footer h3::after {
+  background: #22d3ee !important;
+}
+
+body.dark .btn,
+body.dark button {
+  background: linear-gradient(135deg, #22d3ee, #b91c1c) !important;
+  box-shadow: 0 20px 50px rgba(34,211,238,0.25) !important;
+}
+
+body.dark button:hover,
+body.dark .btn:hover {
+  background: linear-gradient(135deg, #f97316, #22d3ee) !important;
+  box-shadow: 0 25px 60px rgba(34,211,238,0.35) !important;
+}
+
+body.dark .cart-fly {
+  background: #22d3ee !important;
+}
+body.dark #toggleIcon {
+  color: #22d3ee;
+  text-shadow: 0 0 12px rgba(34,211,238,0.6);
+}
+body.dark .carousel-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.75)),
+              radial-gradient(circle at center, rgba(34,211,238,0.18), transparent 60%);
+}
