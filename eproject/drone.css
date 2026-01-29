@@ -1,0 +1,508 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f2f2f2;
+    margin: 0;
+
+     padding-top: 20px; 
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.cart-count {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Grid Layout */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Card */
+.card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    overflow: hidden;
+    transition: 0.4s ease;
+    animation: fadeUp 0.6s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+@keyframes fadeUp {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Buttons Container */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Buttons - Updated to match Home Page */
+.buttons .btn {
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-weight: 500;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #b91c1c, #7f1d1d);
+}
+
+.buttons .btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.buttons .btn.active {
+    background: linear-gradient(135deg, #ff7f50, #ff4500);
+}
+
+/* Make buttons equal width for consistency */
+.buttons .btn {
+    flex: 1;
+    text-align: center;
+}
+
+/* Optional: add spacing if stacked on mobile */
+@media (max-width: 576px) {
+    .buttons {
+        flex-direction: column;
+    }
+}
+navbar {
+  animation: slideInLeft 0.8s ease;
+  background-color: #fff;
+  padding: 12px 25px;
+   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  z-index: 999;
+  transition: background-color 0.3s, padding 0.3s, box-shadow 0.3s;
+}
+
+.navbar-nav .nav-link {
+  position: relative;
+  color: black !important;
+  margin-left: 15px;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-brand img {
+  height: 40px;
+  width: auto;
+  max-width: 480px;
+  border-radius: 8px;
+  border: 3px solid red;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.navbar-brand img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 30px 60px red;
+}
+
+/* Navbar underline animation */
+.navbar-nav .nav-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: red;
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::before,
+.navbar-nav .nav-link.active::before {
+  width: 100%;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: red !important;
+  transform: translateY(-2px);
+}
+
+/* Dropdown caret */
+.navbar .dropdown-toggle::after {
+  display: inline-block !important;
+}
+
+/* Search Form */
+.search-form input {
+  width: 220px;
+  border-radius: 8px;
+}
+
+.search-form button {
+  background: #b91c1c;
+  border: none;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+.search-form button:hover {
+  background: #111;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .search-form {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .search-form input {
+    width: 100%;
+  }
+
+  .navbar-nav {
+    margin-top: 10px;
+  }
+}
+.wrapper,
+.container,
+.main,
+section {
+  overflow: visible;
+}
+
+.navbar.scrolled {
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+/* ================= DROPDOWN ================= */
+.dropdown-menu {
+  animation: fadeUp 0.35s ease forwards;
+  transform-origin: top;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.dropdown.show .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-item:hover {
+  background: #b91c1c;
+  color: #fff;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+/* ================= DARK MODE + BLUR + FADE ================= */
+
+.dark-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #b91c1c;
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.dark-toggle:hover {
+  transform: scale(1.05);
+}
+
+#toggleIcon {
+  display: inline-block;
+  transition: transform 0.5s ease;
+}
+
+/* BLUR + FADE OVERLAY */
+body.dark-transition::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  pointer-events: none;
+  animation: fadeOverlay 0.35s ease;
+  z-index: 9998;
+}
+
+@keyframes fadeOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* SMOOTH COLOR TRANSITION */
+body,
+.navbar,
+.card,
+.footer,
+.dropdown-menu,
+input,
+textarea,
+button {
+  transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease;
+}
+
+/* DARK MODE COLORS */
+body.dark {
+  background: #0b1220 !important;
+  color: #e5e7eb !important;
+}
+
+body.dark .navbar {
+  background: #0a1020 !important;
+}
+
+body.dark .card,
+body.dark .footer,
+body.dark .dropdown-menu {
+  background: #0a1020 !important;
+  color: #fff !important;
+  border-color: #2f3a4a !important;
+}
+
+/* Button color in dark */
+body.dark .dark-toggle {
+  background: #111827;
+}
+
+/* ================= PAGE LOADER ================= */
+#pageLoader {
+  position: fixed;
+  inset: 0;
+  background: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #333;
+  border-top-color: #b91c1c;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+/* ===== DARK MODE NAVBAR TEXT FIX ===== */
+body.dark .navbar-nav .nav-link,
+body.dark .navbar-nav .nav-link.active {
+  color: #ffffff !important;
+}
+
+/* underline color in dark mode */
+body.dark .navbar-nav .nav-link::before {
+  background-color: #ffffff;
+}
+
+/* hover effect */
+body.dark .navbar-nav .nav-link:hover {
+  color: #f87171 !important; /* soft red hover */
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+  padding-top: 90px; /* navbar fixed hai */
+}
+
+h1, h2 {
+  text-align: center;
+  margin: 25px 0 15px;
+  color: #333;
+}
+
+.cart-count {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* ================= GRID ================= */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  padding: 20px 40px;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+}
+
+/* ================= IMAGE FIX ================= */
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;   /* 🔥 image cut nahi hogi */
+  background: #f9fafb;   /* white/gray background */
+  padding: 10px;
+}
+
+/* ================= CONTENT ================= */
+.card-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+/* ================= BUTTONS ================= */
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.buttons .btn {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 30px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #b91c1c, #7f1d1d);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.buttons .btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.buttons .btn.active {
+  background: linear-gradient(135deg, #ff7f50, #ff4500);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 576px) {
+  .cards-container {
+    padding: 15px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+}
+/* ================= GRID ================= */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+  padding: 30px 50px;
+}
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 30px 40px;
+  align-items: stretch;
+}
+
+/* 🔥 HEADING FIX – FULL WIDTH */
+.cards-container h2 {
+  grid-column: 1 / -1;   /* ⬅️ THIS IS THE MAIN FIX */
+  text-align: center;
+  margin: 40px 0 20px;
+  font-weight: 600;
+  color: #111;
+}
