@@ -44,12 +44,12 @@ body{
 }
 .nav-link::after{
   content:"";
-  position:absolute;
+
   bottom:-6px;
   left:0;
   width:0;
   height:2px;
-  background:var(--primary);
+ 
   transition:0.3s;
 }
 .nav-link:hover::after,

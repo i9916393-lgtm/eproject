@@ -9,7 +9,7 @@
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="Index.css">
-  <link rel="stylesheet" href="about.css">
+<link rel="stylesheet" href="about.css">
 </head>
 
 <body>
@@ -169,16 +169,7 @@
   <main>
 
 
-    <div class="brands-section  reveal">
-      <h1>Brands</h1>
-      <div class="brands-logos">
-        <img src="images/sony-logo.jpg" alt="Sony">
-        <img src="images/images (1).png" alt="Nikon">
-        <img src="images/canon-logo-canon-icon-free-free-vector.jpg" alt="Canon">
-        <img src="images/images.png" alt="Fujifilm">
-        <img src="images/Insta360-Logo.jpg" alt="Insta360">
-      </div>
-=======
+
        <div class="brands-section  reveal">
     <h1>Brands</h1>
     <div class="brands-logos">
@@ -189,7 +180,7 @@
         <a href="https://pentax.eu/" target="_blank"><img src="images/pentax.jpg" alt="Fujifilm"></a>
         
         <a href="https://leica-camera.com/en-int?srsltid=AfmBOoqPnWVg6czWLAvoBYAuxdbhVFjEw2MeeExhouAjVFFLHnSlb0Ds" target="_blank"><img src="images/Leica_Camera.svg" alt="lieca"></a>
-      <a href=" " target="_blank"><img src="images/Panasonic_Blue.jpg" alt=""></a>
+      <a href="https://www.panasonic.com/in/consumer/cameras-camcorders/camera.html " target="_blank"><img src="images/Panasonic_Blue.jpg" alt=""></a>
       <a href="https://explore.omsystem.com/us/en/cameras " target="_blank"><img src="images/olympus.jpg" alt=""></a>
 
     </div>
@@ -660,17 +651,26 @@
     </script>
 
     <script>
-      // Reveal animations
-      const reveals = document.querySelectorAll(".reveal");
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          }
-        });
-      }, { threshold: 0.15 });
+   const reveals = document.querySelectorAll(".reveal");
 
-      reveals.forEach(el => observer.observe(el));
+const observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target); // 🔥 important
+      }
+    });
+  },
+  {
+    root: null,
+    threshold: 0.12,
+    rootMargin: "0px 0px -60px 0px"
+  }
+);
+
+reveals.forEach(el => observer.observe(el));
+
     </script>
 
     <script>
@@ -755,37 +755,7 @@
           modalVideo.src = "";
         }
       });
-      const products = [
-        "Sony A7IV",
-        "Canon R6 Mark II",
-        "Nikon Z6 II",
-        "Fujifilm X-T5",
-        "Sony FX3"
-      ];
-
-      const input = document.getElementById("searchInput");
-      const results = document.getElementById("searchResults");
-
-      input.addEventListener("input", () => {
-        const value = input.value.toLowerCase();
-        results.innerHTML = "";
-
-        if (!value) {
-          results.style.display = "none";
-          return;
-        }
-
-        products.filter(p => p.toLowerCase().includes(value))
-          .forEach(item => {
-            const div = document.createElement("div");
-            div.className = "item";
-            div.textContent = item;
-            results.appendChild(div);
-          });
-
-        results.style.display = "block";
-      });
-
+      
     </script>
     <script>
       // ========================= QUICK VIEW & STICKY CART =========================
@@ -901,32 +871,11 @@
           updateWishCount();
         });
       });
+window.addEventListener("load", () => {
+  document.getElementById("pageLoader").style.display = "none";
+});
 
     </script>
-    <div id="stickyCartBar">
-      <div class="cart-info">
-        <img id="stickyImg" src="images/images.jpg" alt="Product">
-        <div class="txt">
-          <h4 id="stickyName">Product Name</h4>
-          <p id="stickyPrice">$999</p>
-        </div>
-      </div>
-      <button id="stickyAdd" class="btn">Add to Cart</button>
-    </div>
-    <div id="quickViewModal">
-      <div class="modal-content">
-        <span class="close-quick" id="closeQuick">&times;</span>
-        <div class="modal-body">
-          <img id="quickImg" src="" alt="Product">
-          <div>
-            <h2 id="quickTitle">Product Title</h2>
-            <p id="quickDesc">Product description goes here.</p>
-            <h3 id="quickPrice">$999</h3>
-            <button id="quickAdd" class="btn">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
 </body>
 
