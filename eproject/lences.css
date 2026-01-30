@@ -881,3 +881,35 @@ body.dark .carousel-item::after {
   background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.75)),
               radial-gradient(circle at center, rgba(34,211,238,0.18), transparent 60%);
 }
+.filter-buttons .btn {
+  margin: 6px;
+  border-radius: 999px;
+}
+
+.filter-buttons .btn.active {
+  background: linear-gradient(135deg, #ff4500, #ff7f50);
+}
+/* FILTER ANIMATIONS */
+.card {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.card.hide {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.product-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
