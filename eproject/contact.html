@@ -27,13 +27,13 @@
         Ideas, Commitment and Comprehensive Hardware &amp; Software Solution.
       </marquee>
     </div>
- <nav class="navbar reveal navbar-expand-lg navbar-light">
+  <nav class="navbar reveal navbar-expand-lg navbar-light">
 
     <div class="container-fluid">
 
       <!-- LOGO -->
-      <a class="navbar-brand logo " href="#">
-        <img src="images\Screenshot_4-1-2026_23308_.jpeg" alt="FotoLab">
+      <a class="navbar-brand" id="logo" href="#">
+        <img  src="images\final logo.png" alt="FotoLab">
       </a>
 
       <!-- TOGGLER -->
@@ -43,80 +43,90 @@
 
       <!-- LINKS -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
 
-  <li class="nav-item">
-    <a class="nav-link active" href="Index.html">Home</a>
-  </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="Index.html">Home</a>
+          </li>
 
-  <!-- Cameras Dropdown -->
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-      Cameras
-    </a>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">DSLR Cameras</a></li>
-      <li><a class="dropdown-item" href="#">Mirrorless Cameras</a></li>
-      <li><a class="dropdown-item" href="#">Action Cameras</a></li>
-    </ul>
-  </li>
+          <!-- Cameras Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="cameras.html" role="button" data-bs-toggle="dropdown">
+              Cameras
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="cameras.html">DSLR Cameras</a></li>
+              <li><a class="dropdown-item" href="cameras.html">Mirrorless Cameras</a></li>
+              <li><a class="dropdown-item" href="cameras.html">Action Cameras</a></li>
+            </ul>
+          </li>
 
-  <!-- Accessories Dropdown -->
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-      Accessories
-    </a>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Tripods</a></li>
-      <li><a class="dropdown-item" href="#">Bags</a></li>
-      <li><a class="dropdown-item" href="#">Memory Cards</a></li>
-      <li><a class="dropdown-item" href="#">Batteries</a></li>
-    </ul>
-  </li>
+          <!-- Accessories Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="Accessories.html" role="button" data-bs-toggle="dropdown">
+            Accessories
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="Accessories.html">Tripods & Supports</a></li>
+            <li><a class="dropdown-item" href="Accessories.html">Camera Bags & Cases</a></li>
+            <li><a class="dropdown-item" href="Accessories.html">Lighting & Studio</a></li>
+            <li><a class="dropdown-item" href="Accessories.html">Filter & Lens Accessories</a></li>
+             <li><a class="dropdown-item" href="Accessories.html">Cleaning & Maintenance</a></li>
+              <li><a class="dropdown-item" href="Accessories.html">Batteries & Chargers</a></li>
+               <li><a class="dropdown-item" href="Accessories.html">Cables & Adapters</a></li>
+                <li><a class="dropdown-item" href="Accessories.html">Miscellaneous Accessories</a></li>
+          </ul>
+        </li>
+          <!-- Lenses Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="lences.html" role="button" data-bs-toggle="dropdown">
+              Lenses
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="lences.html">Wide Angle</a></li>
+              <li><a class="dropdown-item" href="lences.html">Prime Lens</a></li>
+              <li><a class="dropdown-item" href="lences.html">Telephoto</a></li>
+            </ul>
+          </li>
 
-  <!-- Lenses Dropdown -->
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-      Lenses
-    </a>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="#">Wide Angle</a></li>
-      <li><a class="dropdown-item" href="#">Prime Lens</a></li>
-      <li><a class="dropdown-item" href="#">Telephoto</a></li>
-    </ul>
-  </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
 
-  <li class="nav-item">
-    <a class="nav-link" href="about.html">About</a>
-  </li>
+          <li class="nav-item">
+            <a class="nav-link" href="drone cameras.html">Drone Cameras</a>
+          </li>
 
-  <li class="nav-item">
-    <a class="nav-link" href="products.html">Products</a>
-  </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
 
-  <li class="nav-item">
-    <a class="nav-link" href="contact.html">Contact Us</a>
-  </li>
+          <!-- Cart Icon -->
+          <li class="nav-item">
+            <a class="nav-link position-relative" href="#">
+              <i class="bi bi-cart fs-5"></i>
+              <span id="cartCount" class="badge bg-danger position-absolute top-0 start-100 translate-middle">
+                0
+              </span>
+            </a>
+          </li>
 
-  <!-- Cart Icon -->
-  <li class="nav-item">
-    <a class="nav-link position-relative" href="#">
-      <i class="bi bi-cart fs-5"></i>
-      <span id="cartCount"
-        class="badge bg-danger position-absolute top-0 start-100 translate-middle">
-        0
-      </span>
-    </a>
-  </li>
+        </ul>
+        <form class="d-flex" id="searchForm">
+          <input id="siteSearch" class="form-control me-2" type="search" placeholder="Search products & videos"
+            aria-label="Search">
 
-</ul>
-  <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-       <button id="searchBtn">
-    <i class="bi bi-search"></i>
-  </button>
-      </form>
-    </div>
+          <button id="searchBtn" type="button" class="btn btn-dark">
+            <i class="bi bi-search"></i>
+          </button>
+
+
+
+        </form>
+
+
+      </div>
+
 
   </nav>
 

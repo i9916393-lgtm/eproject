@@ -52,9 +52,7 @@ body{
  
   transition:0.3s;
 }
-.nav-link:hover::after,
-.nav-link.active::after{width:100%;}
-.nav-link:hover{color:var(--primary) !important;}
+
 
 /* ================= ABOUT ================= */
 .about{

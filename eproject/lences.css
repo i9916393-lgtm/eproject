@@ -3,8 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #f2f2f2;
     margin: 0;
-
-     padding-top: 20px; 
+    padding-top: 90px;
 }
 
 h1 {
@@ -41,7 +40,7 @@ h1 {
 }
 
 /* Card */
-.card {
+.product-card {
     background: #fff;
     border-radius: 15px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
@@ -50,7 +49,7 @@ h1 {
     animation: fadeUp 0.6s ease;
 }
 
-.card:hover {
+.product-card:hover {
     transform: translateY(-8px) scale(1.02);
 }
 
@@ -59,7 +58,7 @@ h1 {
     to {opacity: 1; transform: translateY(0);}
 }
 
-.card img {
+.product-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -126,7 +125,7 @@ h1 {
   left: 0;
   width: 100%;
   z-index: 9999;
-  z-index: 999;
+
   transition: background-color 0.3s, padding 0.3s, box-shadow 0.3s;
 }
 
@@ -142,15 +141,15 @@ h1 {
   height: 40px;
   width: auto;
   max-width: 480px;
-  border-radius: 8px;
+  /* border-radius: 8px;
   border: 3px solid red;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); */
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .navbar-brand img:hover {
   transform: scale(1.06);
-  box-shadow: 0 30px 60px red;
+  /* box-shadow: 0 30px 60px red; */
 }
 
 /* Navbar underline animation */
@@ -408,7 +407,7 @@ h1, h2 {
 }
 
 /* ================= CARD ================= */
-.card {
+.product-card {
   background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 15px 35px rgba(0,0,0,0.15);
@@ -419,13 +418,13 @@ h1, h2 {
   height: 100%;
 }
 
-.card:hover {
+.product-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 25px 45px rgba(0,0,0,0.2);
 }
 
 /* ================= IMAGE FIX ================= */
-.card img {
+.product-card img {
   width: 100%;
   height: 220px;
   object-fit: contain;   /* 🔥 image cut nahi hogi */
@@ -434,14 +433,14 @@ h1, h2 {
 }
 
 /* ================= CONTENT ================= */
-.card-content {
+.product-card-content {
   padding: 15px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.card-content p {
+.product-card-content p {
   font-size: 14px;
   color: #555;
   line-height: 1.5;
@@ -506,7 +505,7 @@ body.dark .card img {
   background: #020617;
 }
 /* ================= GRID ================= */
-.cards-container {
+.product-cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 35px;
@@ -514,7 +513,7 @@ body.dark .card img {
 }
 
 /* ================= CARD ================= */
-.card {
+.product-card {
   position: relative;
   background: linear-gradient(145deg, #ffffff, #f1f1f1);
   border-radius: 22px;
@@ -527,7 +526,7 @@ body.dark .card img {
   flex-direction: column;
 }
 
-.card::before {
+.product-card::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -536,18 +535,18 @@ body.dark .card img {
   transition: opacity 0.4s ease;
 }
 
-.card:hover::before {
+.product-card:hover::before {
   opacity: 1;
 }
 
-.card:hover {
+.product-card:hover {
   transform: translateY(-12px) scale(1.03);
   box-shadow:
     0 30px 60px rgba(0,0,0,0.25);
 }
 
 /* ================= IMAGE ================= */
-.card img {
+.product-card img {
   width: 100%;
   height: 230px;
   object-fit: contain;
@@ -556,19 +555,19 @@ body.dark .card img {
   transition: transform 0.45s ease;
 }
 
-.card:hover img {
+.product-card:hover img {
   transform: scale(1.08);
 }
 
 /* ================= CONTENT ================= */
-.card-content {
+.product-card-content {
   padding: 18px 18px 22px;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.card-content p {
+.product-card-content p {
   font-size: 14px;
   color: #444;
   line-height: 1.6;
@@ -607,7 +606,7 @@ body.dark .card img {
 }
 
 /* ================= BADGE EFFECT (OPTIONAL) ================= */
-.card::after {
+.product-card::after {
   content: "HOT";
   position: absolute;
   top: 14px;
@@ -622,16 +621,16 @@ body.dark .card img {
 }
 
 /* ================= DARK MODE ================= */
-body.dark .card {
+body.dark .product-card {
   background: linear-gradient(145deg, #0a1020, #020617);
   box-shadow: 0 25px 50px rgba(0,0,0,0.6);
 }
 
-body.dark .card-content p {
+body.dark .product-card-content p {
   color: #d1d5db;
 }
 
-body.dark .card img {
+body.dark .product-card img {
   background: radial-gradient(circle at top, #020617, #000);
 }
 /* ================= GRID FIX ================= */
@@ -653,7 +652,7 @@ body.dark .card img {
 }
 
 /* ================= CARD FIX ================= */
-.card {
+.product-card {
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
@@ -664,13 +663,24 @@ body.dark .card img {
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.card:hover {
+.product-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 22px 45px rgba(0,0,0,0.25);
 }
+.product-card.show {
+  opacity: 1;
+  transform: scale(1);
+  transition: 0.35s ease;
+}
+
+.product-card.hide {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: 0.35s ease;
+}
 
 /* ================= IMAGE FIX ================= */
-.card img {
+.product-card img {
   width: 100%;
   height: 220px;
   object-fit: contain;   /* image cut nahi hogi */
@@ -787,7 +797,7 @@ body.dark .dropdown-item:hover {
   background: rgba(34,211,238,0.15) !important;
 }
 
-body.dark .card,
+body.dark .product-card,
 body.dark .category-card,
 body.dark .video-card,
 body.dark .deals,
@@ -890,17 +900,17 @@ body.dark .carousel-item::after {
   background: linear-gradient(135deg, #ff4500, #ff7f50);
 }
 /* FILTER ANIMATIONS */
-.card {
+.product-card {
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-.card.hide {
+.product-card.hide {
   opacity: 0;
   transform: translateY(20px);
   pointer-events: none;
 }
 
-.card.show {
+.product-card.show {
   opacity: 1;
   transform: translateY(0);
 }
@@ -912,4 +922,45 @@ body.dark .carousel-item::after {
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   display: flex;
   flex-direction: column;
+}
+.product-card.show {
+  opacity: 1;
+  transform: scale(1);
+  transition: 0.35s ease;
+}
+
+
+
+.product-card.hide {
+  opacity: 0;
+  transform: scale(0.95);
+}
+.product-card.show {
+  opacity: 1;
+  transform: scale(1);
+  transition: 0.35s ease;
+}
+
+.product-card.hide {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+
+.card-content {
+  padding: 15px;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #555;
+}
+.buttons {
+  position: relative;
+  z-index: 10;
+}
+
+.product-card::before,
+.product-card::after {
+  pointer-events: none;
 }
