@@ -4,6 +4,7 @@ body {
     background: #f2f2f2;
     margin: 0;
     padding-top: 90px;
+  
 }
 
 h1 {
@@ -963,4 +964,49 @@ body.dark .carousel-item::after {
 .product-card::before,
 .product-card::after {
   pointer-events: none;
+}
+/* Wishlist Button */
+.wishlistBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(185, 28, 28, 0.2);
+  color: #b91c1c;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card {
+  position: relative;
+}
+
+.wishlistBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(185, 28, 28, 0.35);
+}
+
+.wishlistBtn.active {
+  background: rgba(185, 28, 28, 0.9);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(185, 28, 28, 0.6);
+}
+
+/* Dark mode wishlist */
+body.dark .wishlistBtn {
+  background: rgba(0, 0, 0, 0.35);
+  border-color: rgba(34, 211, 238, 0.25);
+  color: #22d3ee;
+}
+
+body.dark .wishlistBtn.active {
+  background: rgba(34, 211, 238, 0.9);
+  color: #070a12;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.6);
 }
