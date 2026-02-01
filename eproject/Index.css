@@ -1323,3 +1323,212 @@ body.dark .wishlistBtn.active {
   color: #070a12;
   box-shadow: 0 0 20px rgba(34, 211, 238, 0.6);
 }
+.hero-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-slide {
+  height: 85vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* PARALLAX */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Dark gradient overlay */
+.hero-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.75)
+  );
+}
+
+/* ================= TEXT OVERLAY ================= */
+.hero-overlay {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+  animation: heroReveal 1.2s ease forwards;
+}
+
+.hero-overlay h1 {
+  font-size: clamp(32px, 5vw, 60px);
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.hero-overlay p {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ================= DARK MODE ================= */
+body.dark .hero-slide::before {
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.9)
+  );
+}
+
+/* ================= MOBILE FIX ================= */
+@media (max-width: 768px) {
+  .hero-slide {
+    height: 60vh;
+    background-attachment: scroll;
+  }
+}
+/* ================= HERO ULTIMATE ================= */
+.hero-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== Slides ===== */
+.hero-slide {
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Video slide */
+.video-slide video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay */
+.hero-slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.85));
+}
+
+/* ===== Text ===== */
+.hero-overlay {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: #fff;
+  max-width: 700px;
+}
+
+.hero-overlay h1 {
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 800;
+}
+
+.hero-overlay p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+/* CTA buttons */
+.hero-btns {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+/* ===== PROGRESS BAR ===== */
+.slider-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 0;
+  background: linear-gradient(90deg, #22d3ee, #b91c1c);
+  z-index: 5;
+}
+
+/* ===== SCROLL INDICATOR ===== */
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.scroll-indicator span {
+  width: 24px;
+  height: 40px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  position: relative;
+  display: block;
+}
+
+.scroll-indicator span::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollDot 1.4s infinite;
+}
+
+@keyframes scrollDot {
+  0% { opacity: 0; transform: translate(-50%, 0); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, 14px); }
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .hero-slide{height:65vh; background-attachment:scroll;}
+}
+.hero-btns a {
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+
+.hero-btns a:hover {
+  transform: translateY(-4px) rotateX(12deg);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+}
+.card:hover {
+  transform: translateY(-10px) rotateX(6deg);
+}
+#bg-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.35;
+  pointer-events: none;
+}
