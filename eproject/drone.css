@@ -213,12 +213,16 @@ h1 {
     margin-top: 10px;
   }
 }
-.wrapper,
-.container,
-.main,
-section {
-  overflow: visible;
+.cards-container {
+  position: relative;
+  z-index: 1;
 }
+body.dark footer {
+  background: #070a12;
+  color: #e5e7eb;
+  border-top: 1px solid rgba(34,211,238,0.25);
+}
+
 
 .navbar.scrolled {
   background: #fff;
@@ -964,3 +968,35 @@ body.dark .carousel-item::after {
 .product-card::after {
   pointer-events: none;
 }
+/* ===== FOOTER GRID BREAKOUT FIX (FINAL) ===== */
+
+footer {
+  all: unset;
+  display: block;
+
+  /* 🔥 FORCE FULL GRID SPAN */
+  grid-column: 1 / -1 !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  background: #020617;
+  color: #e5e7eb;
+  padding: 50px 20px;
+  text-align: center;
+
+  margin-top: 80px;
+  box-sizing: border-box;
+}
+
+/* Kill card styles completely */
+footer,
+footer * {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+
+

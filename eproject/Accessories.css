@@ -964,3 +964,32 @@ body.dark .carousel-item::after {
 .product-card::after {
   pointer-events: none;
 }
+/* ===== FOOTER GRID BREAKOUT FIX (FINAL) ===== */
+
+footer {
+  all: unset;
+  display: block;
+
+  /* 🔥 FORCE FULL GRID SPAN */
+  grid-column: 1 / -1 !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  background: #020617;
+  color: #e5e7eb;
+  padding: 50px 20px;
+  text-align: center;
+
+  margin-top: 80px;
+  box-sizing: border-box;
+}
+
+/* Kill card styles completely */
+footer,
+footer * {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  transform: none !important;
+  transition: none !important;
+}
